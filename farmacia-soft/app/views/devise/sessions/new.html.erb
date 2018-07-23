@@ -8,45 +8,39 @@
   <!-- End Page Loading -->
 
   <div id="login-page" class="row">
-    <div class="col s12 z-depth-4 card-panel">
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'login-for formValidate',novalidate: 'novalidate'}) do |f| %>
+    <div class="col s5 z-depth-4 card-panel">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name),validate: true,html: { class: 'login-for'}) do |f| %>
         <div class="row">
           <div class="input-field col s12 center">
             <%= image_tag('/images/user_avatar.png', class: "circle responsive-img valign profile-image-login") %>
             <p class="center login-form-text">    LOGIN DE USUARIO     </p>
           </div>
-        </div>
        
-        <div class="row margin">
           <div class="input-field col s12">
             <i class="mdi-social-person-outline prefix"></i>
-              <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
-               <%= f.label 'Usuario', class: "center-align" %><br />
+              <%= f.text_field :username, autofocus: true, autocomplete: "username" ,name:'username', id: 'username'%>
+               <%= f.label 'Usuario',class: "center-align" %><br />
           </div>
-        </div>
-        <div class="row margin">
           <div class="input-field col s12">
             <i class="mdi-action-lock-outline prefix"></i>
-                <%= f.password_field :password, autocomplete: "off" %>
+                <%= f.password_field :password, autocomplete: "off",name:'password',id: 'password'%>
                 <%= f.label 'Contraseña' %><br />
 
-          </div>
-        </div>
-        <div class="row">          
+          </div>       
           <div class="input-field col s12 m12 l12  login-text">
             <% if devise_mapping.rememberable? -%>
               <%= f.check_box :remember_me, id: 'remember-me' %>
               <%= f.label 'Recordar',for: 'remember-me' %>
 
             <% end -%>
-          </div>
         </div>
-        <div class="row">
           <div class="input-field col s12">
-             <%= f.submit "Ingresar", class: "btn waves-effect waves-light col s12" %>
+             <%= f.submit "Ingresar", class: "btn waves-effect waves-light col s12",name:'action' %>
           </div>
         </div>
 
      <% end %>
     </div>
   </div>
+
+</body>
