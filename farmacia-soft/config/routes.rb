@@ -6,6 +6,8 @@ Rails.application.routes.draw do
         get '/login' => 'users/sessions#new', as: 'sign_in'
         post '/login' => 'users/sessions#create', as: 'sign_in_user'
         delete '/logout' => 'users/sessions#destroy', as: 'sign_out'
+        get '/registrarse' => 'users/registrations#new', as: 'sign_up'
+        get '/dashboard' => 'dashboard/dashboard#index', as: 'dashboard'
      end
      #authenticated :user do
         #root 'users/sessions#new'
@@ -13,13 +15,12 @@ Rails.application.routes.draw do
 
     # Dashboard 
     
-    resources :dashboard
     # get '/dashboard' => 'dashboard#index', as: 'dashboard' 
     
     # Users
   
     # Registrations
-    get '/registrarse' => 'users/registrations#new', as: 'sign_up'
+   # get '/registrarse' => 'users/registrations#new', as: 'sign_up'
     post '/registrarse' => 'users/registrations#create', as: 'sign_up_user'
     # Passwords
     get '/reestablecer_contrasena' => 'users/passwords#new', as: 'recovery_password'
