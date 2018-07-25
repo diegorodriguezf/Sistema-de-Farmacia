@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# user seeder create
+@user=User.first()
+if @user.blank?
+	user = User.new(
+        first_name: 'Diego Ramón',
+	    last_name: 'Rodriguez Figueredo',
+		username: 'Diego' ,
+	    password: "riper_010989",
+	    email: 'diego.10989@gmail.com' 
+        )
+      user.save!
+end

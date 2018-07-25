@@ -8,7 +8,7 @@ en:
       blank: "El campo de datos no puede estar vacio"
       invalid: "El dato que intenta ingresar no es válido"
       too_long: "Longitud máxima permitido a ingresar:%{count} caracter/es"
-      too_short: "Longitud de datos mínima requerida: %{count} caracter/es"
+      too_short: "El campo es requerida como mínima: %{count} caracter/es"
       unique: "El campo que desea ingresar ya existe"
       less_than: "La Cantidad Mínima tiene que ser menor que: %{count}"
       greater_than: "La Cantidad Optima tiene que ser mayor que: %{count}"
