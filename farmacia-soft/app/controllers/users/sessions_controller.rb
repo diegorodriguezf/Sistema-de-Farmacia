@@ -14,7 +14,7 @@ class Users::SessionsController < Devise::SessionsController
         if @user && @user.valid_password?(params[:user][:password])
                 # Si el usuario existe y contraseña coincide
                 session[:user_id] = @user.id
-                 format.html{ redirect_to(dashboard_index_path, notice: "Bienvenido #{@user.first_name} #{@user.last_name},
+                 format.html{ redirect_to(dashboard_path, notice: "Bienvenido #{@user.first_name} #{@user.last_name},
                 ha iniciado sesión correctamente"); }
                  format.js { render 'go_to_dashboard'}
             else # Usuario no existe
