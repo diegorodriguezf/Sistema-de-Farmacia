@@ -70,7 +70,7 @@
                     <li>
                         <a class="dropdown-menu cyan-text" href="#!" data-activates="Usersdropdown">
                             <i class="mdi-action-account-circle"></i>
-                            <span>Users<i class="mdi-navigation-arrow-drop-down right"></i></span>
+                            <span>Usuario<i class="mdi-navigation-arrow-drop-down right"></i></span>
                         </a>
                     </li>
                     <li>
@@ -147,7 +147,7 @@
                 <ul id="Usersdropdown" class="dropdown-content dropdown-horizontal-list">
                     <li><a href="user-profile-page.html"  class="cyan-text">User Profile</a></li>
                     <li><a href="user-login.html"  class="cyan-text">Login</a></li>
-                    <li><a href="user-register.html" class="cyan-text">Register</a></li>
+                    <li> <%= link_to 'Registrar Usuario', sign_up_path, class: "cyan-text" %></li>
                     <li><a href="user-forgot-password.html" class="cyan-text">Forgot Password</a></li>                    
                     <li><a href="user-lock-screen.html" class="cyan-text">Lock Screen</a></li>
                     <li><a href="user-sesssion-timeout.html" class="cyan-text">Session Timeout</a></li>

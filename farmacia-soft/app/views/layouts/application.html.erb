@@ -7,8 +7,20 @@
     <%= stylesheet_link_tag    'application', media: 'all','data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
-  <body>
-    <%= yield %>
+ 
+  <body id="layouts-horizontal">
+  	 <!-- Start Page Loading -->
+    <!--<div id="loader-wrapper">
+        <div id="loader"></div>        
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>-->
+  	<header id="header" class="page-topbar">
+           <%= render 'layouts/header' %>
+     </header>
+    <div id="main">
+        <%= yield %>
+    </div>
+     <%= render 'layouts/footer' %>
   </body>
 </html>
