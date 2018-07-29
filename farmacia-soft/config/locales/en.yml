@@ -5,12 +5,13 @@
 en:  
   errors:  
     messages:  
-      blank: "El campo de datos no puede estar vacio"
+      blank: "El campo no puede estar vacio"
       invalid: "El dato que intenta ingresar no es válido"
-      too_long: "Longitud máxima permitido a ingresar:%{count} caracter/es"
-      too_short: "El campo es requerida como mínima: %{count} caracter/es"
+      too_long: "Longitud máxima permitido a ingresar:%{count} caracteres"
+      too_short: "El campo es requerida como mínima: %{count} caracteres"
       unique: "El campo que desea ingresar ya existe"
       less_than: "La Cantidad Mínima tiene que ser menor que: %{count}"
       greater_than: "La Cantidad Optima tiene que ser mayor que: %{count}"
       greater_than_or_equal_to: "No puede ingresar números negativos o cero"
       numericality: "El campo de datos tiene que ser un numero"
+      confirmation: "Ambas contraseñas deben de coincidir"

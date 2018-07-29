@@ -19,8 +19,15 @@
            <%= render 'layouts/header' %>
      </header>
     <div id="main">
-       <%= render 'layouts/sidebar_left_menu' %>
-        <%= yield %>
+      <div class="wrapper">
+         <%= render 'layouts/left_sidebar_nav' %>
+         <section id="content">
+           <div class="container">
+             <%= yield %>
+           </div> 
+         </section> 
+          <%= render 'layouts/rigth_sidebar_nav' %>  
+      </div>
     </div>
      <%= render 'layouts/footer' %>
   </body>

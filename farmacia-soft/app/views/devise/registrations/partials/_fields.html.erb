@@ -23,6 +23,10 @@
        <%=f.password_field :password_confirmation,autofocus: true, autocomplete: "Confirmar Contraseña", maxlength:'15',class: 'validate'%>
        <%= f.label 'Confirmar Contraseña' %>
      </div>
+     <div class="input-field col s6">  
+       <%=f.text_field :email,autofocus: true, autocomplete: "Email", maxlength:'40',class: 'validate'%>
+       <%= f.label 'Email' %>
+     </div>
  </div>
   <div class="row">
       <div class="input-field col s12">

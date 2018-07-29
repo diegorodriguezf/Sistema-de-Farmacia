@@ -14,6 +14,9 @@ class User < ApplicationRecord
   validates :username, presence: true
   validates :password, presence: true
   validates :password,length: { minimum: 8}
+  validates :password, confirmation: { case_sensitive: true }
+  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
+  validates :email, uniqueness: { case_sensitive: false, message: 'La dirección de correo electronico ya existe en el registro' }
   
   def password
     @password ||= Password.new(encrypted_password)
