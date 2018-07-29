@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
      # Root path
      devise_scope :user do
-        root "devise/sessions#new"
+        root "users/sessions#new"
        # Sessions
         get '/login' => 'users/sessions#new', as: 'sign_in'
         post '/login' => 'users/sessions#create', as: 'sign_in_user'

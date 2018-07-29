@@ -3,9 +3,7 @@
 class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
   # GET /resource/sign_in
- layout false layout 'application', :except => :view
   def  new
-
      self.resource = resource_class.new(sign_in_params)
     clean_up_passwords(resource)
     yield resource if block_given?

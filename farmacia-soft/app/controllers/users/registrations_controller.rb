@@ -6,57 +6,31 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
    def new
-     super
+     self.resource = resource_class.new(sign_in_params)
+    clean_up_passwords(resource)
+    yield resource if block_given?
+    respond_with(resource, serialize_options(resource))
+   end
+   def create
+       @user = User.new(user_params)
+        if @user.save
+            redirect_to sign_in_path, notice: 'Usuario registrado con éxito, necesita verificar su cuenta a través de su correo electrónico'
+        else
+            render :new
+        end
+   end
+
+     def sign_in_params
+    devise_parameter_sanitizer.sanitize(:sign_in)
   end
 
-  # POST /resource
-  # def create
-  #   super
-  # end
-
-  # GET /resource/edit
-  # def edit
-  #   super
-  # end
-
-  # PUT /resource
-  # def update
-  #   super
-  # end
-
-  # DELETE /resource
-  # def destroy
-  #   super
-  # end
-
-  # GET /resource/cancel
-  # Forces the session data which is usually expired after sign
-  # in to be expired now. This is useful if the user wants to
-  # cancel oauth signing in/up in the middle of the process,
-  # removing all OAuth session data.
-  # def cancel
-  #   super
-  # end
-
-  # protected
-
-  # If you have extra params to permit, append them to the sanitizer.
-  # def configure_sign_up_params
-  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
-  # end
-
-  # If you have extra params to permit, append them to the sanitizer.
-  # def configure_account_update_params
-  #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
-  # end
-
-  # The path used after sign up.
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
-  # end
-
-  # The path used after sign up for inactive accounts.
-  # def after_inactive_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+  def serialize_options(resource)
+    methods = resource_class.authentication_keys.dup
+    methods = methods.keys if methods.is_a?(Hash)
+    methods << :password if resource.respond_to?(:password)
+    { methods: methods, only: [:password] }
+  end
+  def user_params
+        params.require(:user).permit(:username, :password, :password_confirmation, :first_name, :last_name, :email)
+    end
 end
