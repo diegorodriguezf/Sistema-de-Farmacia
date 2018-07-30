@@ -21,7 +21,6 @@ class Users::SessionsController < Devise::SessionsController
            end  
             else # Si el usuario o contraseña no coincide
                 respond_to do |format|
-                    flash[:notice] = 'Usuario o Contraseña incorrecta'
                     format.js { render 'error_authentication', content_type: 'text/javascript'  }
                 end 
         end
