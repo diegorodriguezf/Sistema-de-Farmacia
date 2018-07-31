@@ -1,15 +1,10 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-
-<% end %>
 
 <div class="row">
      <div class="col s6 offset-s2">
          <div class="card-panel">
             <h4 class="header2">Usuario Form</h4>
             <div class="row">
-               <%= simple_form_for(resource, as: resource_name,url:update_user_path,html:{autocomplete:'off',method: :put},:validate => true) do |f| %>
+               <%= simple_form_for(@user,url:update_user_path,html:{autocomplete:'off',method: :put},:validate => true) do |f| %>
                      <%= render 'devise/registrations/partials/fields', f: f %>
               <% end %>
             </div> 
