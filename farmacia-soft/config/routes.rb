@@ -11,6 +11,10 @@ Rails.application.routes.draw do
         # Registrations
         get '/registrarse' => 'users/registrations#new', as: 'sign_up'
         post '/registrarse' => 'users/registrations#create', as: 'sign_up_user'
+        get 'user/:id/edit' => 'users/registrations#edit', as: 'edit_user'
+        patch '/user/:id' => 'users/registrations#update', as: 'update_user'
+        patch '/user/:id' => 'users/registrations#destroy', as: 'destroy_user'
+        get 'users/index' => 'users/registrations#index', as: 'index' 
        # Passwords
         get '/reestablecer_contrasena' => 'users/passwords#new', as: 'recovery_password'
         get '/editar_contrasena/:reset_password_token' => 'users/passwords#edit', as: 'edit_password'

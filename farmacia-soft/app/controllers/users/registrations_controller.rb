@@ -20,7 +20,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
         end
    end
 
-     def sign_in_params
+  def edit
+     @user = User.find(params[:id])
+  end
+  def index
+    @users =User.all
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @users }
+    end
+  end
+
+  def sign_in_params
     devise_parameter_sanitizer.sanitize(:sign_in)
   end
 
@@ -31,6 +42,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     { methods: methods, only: [:password] }
   end
   def user_params
-        params.require(:user).permit(:username, :password, :password_confirmation, :first_name, :last_name, :email)
+        params.require(:user).permit(:username, :password, :first_name, :last_name, :email)
     end
 end
