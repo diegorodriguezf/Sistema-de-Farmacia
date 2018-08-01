@@ -4,15 +4,15 @@ Rails.application.routes.draw do
        # Sessions
           get 'login' => 'sessions/sessions#new', as: 'sign_in'
           match 'logout' => 'sessions/sessions#destroy', as: 'sign_out'
-       # dashboard
+        # dashboard
          get '/dashboard' => 'dashboard/dashboard#index', as: 'dashboard'
-         # Registrations
-        get '/registrarse' => 'users/users#new', as: 'sign_up'
-        post '/registrarse' => 'users/users#create', as: 'sign_up_user'
-        get 'user/:id/edit' => 'users/users#edit', as: 'edit_user'
-        patch '/user/:id' => 'users/users#update', as: 'update_user'
-        patch '/user/:id' => 'users/users#destroy', as: 'destroy_user'
-        get 'users/index' => 'users/users#index', as: 'index' 
+         # Users
+          get '/registrarse' => 'users/users#new', as: 'sign_up'
+          post '/registrarse' => 'users/users#create', as: 'sign_up_user'
+          get 'user/:id/edit' => 'users/users#edit', as: 'edit_user'
+          patch '/user/:id' => 'users/users#update', as: 'update_user'
+          patch '/user/:id' => 'users/users#destroy', as: 'destroy_user'
+          get 'users/index' => 'users/users#index', as: 'index' 
 
       
       
