@@ -1,15 +1,12 @@
 # frozen_string_literal: true
 
-class Users::RegistrationsController < Devise::RegistrationsController
+class Users::UsersController < ApplicationController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
-
+  #before_action :authenticate_user!
   # GET /resource/sign_up
    def new
-     self.resource = resource_class.new(sign_in_params)
-    clean_up_passwords(resource)
-    yield resource if block_given?
-    respond_with(resource, serialize_options(resource))
+     super
    end
    def create
        @user = User.new(user_params)
@@ -31,17 +28,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
 
-  def sign_in_params
-    devise_parameter_sanitizer.sanitize(:sign_in)
-  end
-
-  def serialize_options(resource)
-    methods = resource_class.authentication_keys.dup
-    methods = methods.keys if methods.is_a?(Hash)
-    methods << :password if resource.respond_to?(:password)
-    { methods: methods, only: [:password] }
-  end
   def user_params
-        params.require(:user).permit(:username, :password, :first_name, :last_name, :email)
+        params.require(:user).permit(:username, :password, :first_name, :last_name)
     end
 end

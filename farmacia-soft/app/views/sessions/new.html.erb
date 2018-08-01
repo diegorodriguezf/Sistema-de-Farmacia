@@ -15,7 +15,7 @@
                <span aria-hidden="true">×</span>
           </button>
        </div>
-        <%= simple_form_for(resource, as: resource_name, url:sign_in_user_path,validate: true,remote:true,html: { class: 'login-for'}) do |f| %>
+        <%= simple_form_for(resource, as: resource_name, url:sign_in_path,validate: true,remote:true,html: { class: 'login-for'}) do |f| %>
         <div class="row">
           <div class="input-field col s12 center">
             <%= image_tag('/images/user_avatar.png', class: "circle responsive-img valign profile-image-login") %>
