@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
         # Root path
-          root "sessions/sessions#new"
+          root to: "sessions/sessions#new"
        # Sessions
           get 'login' => 'sessions/sessions#new', as: 'sign_in'
-          match 'logout' => 'sessions/sessions#destroy', as: 'sign_out'
+          post '/login' => 'sessions/sessions#create', as: 'sign_in_user'
+          match 'logout' => 'sessions/sessions#destroy',:via => [:get], as: 'sign_out'
         # dashboard
          get '/dashboard' => 'dashboard/dashboard#index', as: 'dashboard'
          # Users

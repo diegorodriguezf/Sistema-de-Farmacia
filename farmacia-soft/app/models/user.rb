@@ -1,7 +1,7 @@
 require 'bcrypt'
 class User < ApplicationRecord
   authenticates_with_sorcery!
-
+  include BCrypt
   # validaciones de usuario
   validates :first_name, presence: true
   validates :last_name, presence: true

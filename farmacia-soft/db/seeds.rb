@@ -13,8 +13,7 @@ if @user.blank?
         first_name: 'Diego Ramón',
 	    last_name: 'Rodriguez Figueredo',
 		username: 'Diego' ,
-	    password: "riper_010989",
-	    email: 'diego.10989@gmail.com' 
+	    password: "riper_010989"
         )
       user.save!
 end
