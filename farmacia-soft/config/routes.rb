@@ -4,7 +4,7 @@ Rails.application.routes.draw do
        # Sessions
           get 'login' => 'sessions/sessions#new', as: 'sign_in'
           post '/login' => 'sessions/sessions#create', as: 'sign_in_user'
-          match 'logout' => 'sessions/sessions#destroy',:via => [:get], as: 'sign_out'
+          match 'logout' => 'sessions/sessions#destroy',:via => [:delete], as: 'sign_out'
         # dashboard
          get '/dashboard' => 'dashboard/dashboard#index', as: 'dashboard'
          # Users
