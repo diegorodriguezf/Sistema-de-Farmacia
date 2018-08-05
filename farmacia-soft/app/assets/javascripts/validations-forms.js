@@ -1,4 +1,4 @@
-var Script = function () {
+/*var Script = function () {
     $().ready(function() {
         $.validator.addMethod("regex",function (value, element, regexp) {
             var re = new RegExp(regexp);
@@ -41,4 +41,4 @@ var Script = function () {
                 }
          });
     });
-}(); 
+}(); */

@@ -8,7 +8,6 @@
                        <th>Nombre </th>
                        <th>Apellido</th>
                        <th>Usuario</th>
-                       <th>Email</th>
                        <th>Acciones</th>
                     </tr>
                 </thead>
@@ -18,7 +17,6 @@
                         <td><%= user.first_name %></td>
                         <td><%= user.last_name %></td>
                         <td><%= user.username %></td>
-                        <td><%= user.email %></td>
                         <td><i class="mdi-content-create prefix" title="editar"></i><%= link_to "Editar", edit_user_path(user) %> &nbsp &nbsp &nbsp   
                             <i class="mdi-action-delete prefix" title="borrar"></i><%= link_to "Eliminar", destroy_user_path(user), :confirm => "Desea eliminar el usuario "+ user.first_name + ' ' + user.last_name,:method => :delete%></td>
                       </tr>

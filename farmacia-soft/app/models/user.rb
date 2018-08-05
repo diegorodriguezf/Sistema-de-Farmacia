@@ -6,9 +6,9 @@ class User < ApplicationRecord
   # validaciones de usuario
   validates :first_name, presence: true
   validates :last_name, presence: true
-  validates :username, presence: true
+  validates :username, presence: true,uniqueness: { case_sensitive: false, message: 'El usuario  %{value} ya existe ' }
   validates :password, presence: true
   validates :password,length: { minimum: 8}
-  validates :password, confirmation: { case_sensitive: true,:on=>[:new,:edit]}
+  validates :password, confirmation: { case_sensitive: true}
   
 end
