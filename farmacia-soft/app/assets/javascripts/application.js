@@ -12,6 +12,8 @@
 //
 //= require rails-ujs
 //= require jquery
-//= require turbolinks
 //= require jquery.validate
+//= require jquery.validate.additional-methods
+//= require turbolinks
+
 //= require_tree .

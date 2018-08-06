@@ -1,4 +1,4 @@
-var Script = function () {
+ $(document).on("turbolinks:load", function(){ 
     $().ready(function() {
         $.validator.addMethod("regex",function (value, element, regexp) {
             var re = new RegExp(regexp);
@@ -15,9 +15,9 @@ var Script = function () {
                 },
                
                 'password': {
-    				required: true,
-    				minlength: 8
-    			},
+                    required: true,
+                    minlength: 8
+                },
             },
             //For custom messages
             messages: {
@@ -41,4 +41,4 @@ var Script = function () {
                 }
          });
     });
-}(); 
+}); 

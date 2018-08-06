@@ -15,7 +15,7 @@
                <span aria-hidden="true">×</span>
           </button>
        </div>
-        <%= form_tag sign_in_user_path, id:'login-form',html: { class: 'login-for formValidate'},remote: true do %>
+        <%= form_tag sign_in_user_path, id:'login-form',class: 'login-for formValidate',remote: true do %>
         <div class="row">
           <div class="input-field col s12 center">
             <%= image_tag('/images/user_avatar.png', class: "circle responsive-img valign profile-image-login") %>
@@ -25,13 +25,13 @@
           <div class="input-field col s12">
             <i class="mdi-social-person-outline prefix"></i>
               <%= text_field_tag :username,nil,class: 'validate','data-error'=>'.errorTxt3', autofocus: true, autocomplete: "username"  %>
-               <%= label_tag 'Usuario',nil,class: 'center-align' %>
+               <%= label_tag 'Usuario',nil,for:'username',class: 'center-align' %>
                <div class="errorTxt3"></div>
                <br />
           </div>
           <div class="input-field col s12">
             <i class="mdi-action-lock-outline prefix"></i>
-                <%= password_field_tag :password, autocomplete: "off"%>
+                <%= password_field_tag :password, autocomplete: 'off' %>
                 <%= label_tag 'Contraseña' %><br />
 
           </div>       
