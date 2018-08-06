@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>The page you were looking for doesn't exist (404)</title>
+  <title>FarmaciaSoft</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
+   <link rel="icon" href="../../images/favicon-32x32.png" sizes="32x32">
   <style>
   .rails-default-error-page {
     background-color: #EFEFEF;
@@ -23,18 +24,24 @@
     border-right-color: #999;
     border-left-color: #999;
     border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
+    border-top: #e57373 solid 4px;
     border-top-left-radius: 9px;
     border-top-right-radius: 9px;
-    background-color: white;
+    background-color: #26a69a;
     padding: 7px 12% 0;
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
   }
 
   .rails-default-error-page h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
+    font-size: 60px;
+    color: white;
+    margin-top: 25px;
+    height: 45px;
+  }
+  .rails-default-error-page h3 {
+   font-size: 100%;
+    color: white;
+    height: 25px;
   }
 
   .rails-default-error-page div.dialog > p {
@@ -51,6 +58,9 @@
     color: #666;
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
   }
+  .rails-default-error-page h1 error_404 {
+    font-size: 50px;
+  }
   </style>
 </head>
 
@@ -58,10 +68,10 @@
   <!-- This file lives in public/404.html -->
   <div class="dialog">
     <div>
-      <h1>The page you were looking for doesn't exist.</h1>
-      <p>You may have mistyped the address or the page may have moved.</p>
+      <h1>404</h1>
+      <h3>Disculpe..! Página no encontrada.</h3>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
+    <p>No se ha podido encontrar la página que esta solicitando . Puede volver al <a href="/dashboard">Administrador</a></p>
   </div>
 </body>
 </html>

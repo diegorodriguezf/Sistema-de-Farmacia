@@ -145,11 +145,9 @@
 
                 <!-- Usersdropdown -->
                 <ul id="Usersdropdown" class="dropdown-content dropdown-horizontal-list">
-                    <li><a href="user-profile-page.html"  class="cyan-text">User Profile</a></li>
-                    <li><a href="user-login.html"  class="cyan-text">Login</a></li>
-                    <li> <%= link_to 'Registrar Usuario', sign_up_path, class: "cyan-text" %></li>
-                    <li><a href="user-forgot-password.html" class="cyan-text">Forgot Password</a></li>                    
-                    <li><a href="user-lock-screen.html" class="cyan-text">Lock Screen</a></li>
+                    <li><%= link_to 'Mi Perfil',edit_user_path(current_user) %> </li>
+                    <li> <%= link_to 'Registrar Usuario', sign_up_path, class: "cyan-text" %></li> 
+                    <li> <%= link_to 'Lista de Usuarios', index_path, class: "cyan-text" %></li>       
                     <li> <%= link_to 'Cerrar Sesión',sign_out_path, method: "delete",class: "cyan-text" %></li>
                 </ul>
 

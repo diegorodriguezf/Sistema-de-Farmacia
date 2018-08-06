@@ -3,7 +3,7 @@
   <head>
     <title>FarmaciaSoft</title>
     <%= csrf_meta_tags %>
-
+    <link rel="icon" href="images/favicon-32x32.png" sizes="32x32">
     <%= stylesheet_link_tag    'application', media: 'all','data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -15,9 +15,11 @@
         <div class="loader-section section-left"></div>
         <div class="loader-section section-right"></div>
     </div>-->
-  	<header id="header" class="page-topbar">
-           <%= render 'layouts/header' %>
-     </header>
+    <% if current_user %>
+    	<header id="header" class="page-topbar">
+             <%= render 'layouts/header' %>
+       </header>
+    <% end %>
     <div id="main">
       <div class="wrapper">
          <%= render 'layouts/left_sidebar_nav' %>
@@ -29,6 +31,8 @@
           <%= render 'layouts/rigth_sidebar_nav' %>  
       </div>
     </div>
-     <%= render 'layouts/footer' %>
+    <% if current_user %>
+       <%= render 'layouts/footer' %>
+      <% end %>
   </body>
 </html>
