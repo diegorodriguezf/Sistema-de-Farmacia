@@ -5,6 +5,7 @@
             <table id="data-table-simple" class="responsive-table display" cellspacing="0">
                 <thead>
                     <tr>
+                       <th  style="display: none;"> </th>
                        <th>Nombre </th>
                        <th>Apellido</th>
                        <th>Usuario</th>
@@ -14,15 +15,17 @@
                 <tbody>
                    <% @users.each do |user| %> 
                       <tr>
+                        <td style="display: none;"><%= user.id %></td>
                         <td><%= user.first_name %></td>
                         <td><%= user.last_name %></td>
                         <td><%= user.username %></td>
                         <td><i class="mdi-content-create prefix" title="editar"></i><%= link_to "Editar", edit_user_path(user) %> &nbsp &nbsp &nbsp   
-                            <i class="mdi-action-delete prefix" title="borrar"></i><%= link_to "Eliminar", destroy_user_path(user), :confirm => "Desea eliminar el usuario "+ user.first_name + ' ' + user.last_name,:method => :delete%></td>
+                            <i class="mdi-action-delete prefix" title="borrar"></i><%= link_to "Eliminar", '#user_modal',class: 'waves-effect waves-light  modal-trigger'%></td>
                       </tr>
                    <% end %>   
                 </tbody> 
             </table>    
         </div>
       </div>         
-  </div>    
+  </div>  
+   <%= render 'users/partials/modal_delete'%>  
