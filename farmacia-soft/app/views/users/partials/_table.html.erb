@@ -20,7 +20,7 @@
                         <td><%= user.last_name %></td>
                         <td><%= user.username %></td>
                         <td><i class="mdi-content-create prefix" title="editar"></i><%= link_to "Editar", edit_user_path(user) %> &nbsp &nbsp &nbsp   
-                            <i class="mdi-action-delete prefix" title="borrar"></i><%= link_to "Eliminar", '#user_modal',class: 'waves-effect waves-light  modal-trigger'%></td>
+                            <i class="mdi-action-delete prefix" title="borrar"></i><%= link_to "Eliminar", destroy_user_path(user), :method => :delete, data: { confirm:"Desea eliminar el Usuario "+user.username}  %></td>
                       </tr>
                    <% end %>   
                 </tbody> 
@@ -28,4 +28,4 @@
         </div>
       </div>         
   </div>  
-   <%= render 'users/partials/modal_delete'%>  
+ 

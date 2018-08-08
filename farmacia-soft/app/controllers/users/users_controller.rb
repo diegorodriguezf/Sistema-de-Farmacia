@@ -39,13 +39,15 @@ class Users::UsersController < ApplicationController
           end
         end
   end
+
   def show
      @user =User.find(params[:id])
      respond_to do |format|
-       format.js {render 'users/open_modal_delete'}
+       format.js {render 'users/open_modal_delete',content_type: 'text/javascript' }
        format.json { render json: @user }
     end
   end
+
   def index
     @users =User.all
     respond_to do |format|
@@ -54,7 +56,22 @@ class Users::UsersController < ApplicationController
     end
   end
 
+  def destroy 
+    @user = User.find(params[:id])
+    begin
+      @user.destroy
+      flash[:succesfull]= "Los datos del Usuario han sido eliminados"
+      rescue
+      flash[:error]= "Los datos del Usuario no se pueden eliminar"
+      ensure
+      respond_to do |format|
+        format.html { redirect_to index_path }
+        format.json { head :no_content }
+      end
+    end
+  end
+
   def user_params
         params.require(:user).permit(:username, :password, :first_name, :last_name)
-    end
+  end
 end

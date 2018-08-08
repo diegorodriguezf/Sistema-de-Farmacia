@@ -1,9 +1,11 @@
-<div id="user_modal" class="modal">
-     <div class="modal-content">
-         <p>Desea eliminar el Usuario </p>
-     </div>
-     <div class="modal-footer">
-         <%= link_to 'Si','#', class: 'waves-effect waves-red btn-flat modal-action modal-close' %>
-         <%= link_to 'Cancelar','#', class: 'waves-effect waves-green btn-flat modal-action modal-close' %>
-     </div>
-</div>
+<div id="modals-demo" class="section">
+	<div id="user_modal" class="modal  green white-text" style="display: none;">  
+		     <div class="modal-content">
+		         <p>Desea eliminar el Usuario <span id="username"></span> </p>
+		     </div>
+		     <div class="modal-footer green lighten-4">
+		         <%= link_to 'Si','#', class: 'waves-effect waves-red btn-flat modal-action modal-close' %>
+		         <%= link_to 'Cancelar','#', class: 'waves-effect waves-green btn-flat modal-action modal-close' %>
+		     </div>
+	</div>
+	</div>

@@ -117,11 +117,8 @@ GEM
     public_suffix (3.0.2)
     puma (3.12.0)
     rack (2.0.5)
-<<<<<<< HEAD
-=======
     rack-attack (5.4.0)
       rack (>= 1.0, < 3)
->>>>>>> 7a700c9bd0e84c5869d14a2aa82f74f2aa4816e9
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (5.1.6)
@@ -165,11 +162,7 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
-<<<<<<< HEAD
-    selenium-webdriver (3.13.1)
-=======
     selenium-webdriver (3.14.0)
->>>>>>> 7a700c9bd0e84c5869d14a2aa82f74f2aa4816e9
       childprocess (~> 0.5)
       rubyzip (~> 1.2)
     simple_form (4.0.1)

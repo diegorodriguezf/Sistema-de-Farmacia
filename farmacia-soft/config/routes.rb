@@ -13,14 +13,10 @@ Rails.application.routes.draw do
           get 'user/:id/edit' => 'users/users#edit', as: 'edit_user'
 
           put '/user/:id' => 'users/users#update', as: 'update_user'
-          get 'user/:id/show' => 'users/users#show', as: 'showuser'
+          get 'user/:id/show' => 'users/users#show', as: 'user_show'
           delete '/user/:id' => 'users/users#destroy', as: 'destroy_user'
           get 'users/index' => 'users/users#index', as: 'index' 
-          if Rails.env.production?
-            get '404', to: 'application#page_not_found'
-            get '422', to: 'application#server_error'
-            get '500', to: 'application#server_error'
-          end
+         
       
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

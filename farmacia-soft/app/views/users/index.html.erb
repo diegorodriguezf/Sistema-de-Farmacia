@@ -1,1 +1,16 @@
+ <%= render 'users/partials/modal_delete'%> 
+ <% if flash[:succesfull]%>
+     <div id="card-alert" class="card green col s5 offset-s1">
+         <div class="card-content white-text">
+             <%= flash[:succesfull] %>.
+         </div>
+     </div>
+ <% end %>
+  <% if flash[:error]%>
+     <div id="card-alert" class="card red col s5 offset-s1">
+         <div class="card-content white-text">
+             <%= flash[:error] %>.
+         </div>
+     </div>
+ <% end %>
  <%= render 'users/partials/table'%>
