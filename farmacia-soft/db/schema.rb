@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180806133134) do
+ActiveRecord::Schema.define(version: 20180809223356) do
+
+  create_table "customers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string "first_name", limit: 25, null: false
+    t.string "last_name", limit: 25, null: false
+    t.string "doc_number", limit: 15, null: false
+    t.date "birthdate", null: false
+    t.string "nationality", limit: 50
+    t.string "address", limit: 200,
+    t.string "phone", limit: 20
+    t.string "sexo", limit: 1, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "error_messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.text "class_name"

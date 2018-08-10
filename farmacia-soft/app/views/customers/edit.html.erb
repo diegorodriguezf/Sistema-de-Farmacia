@@ -1,0 +1,20 @@
+
+<div class="row">
+     <div class="col s6 offset-s2">
+         <div class="card-panel">
+              <% if flash[:notice]%>
+                 <div id="card-alert" class="card green col s10 offset-s1">
+                    <div class="card-content white-text">
+                        <%= flash[:notice] %>.
+                     </div>
+                 </div>
+              <% end %>
+            <h4 class="header2">Cliente Form</h4>
+            <div class="row">
+               <%= simple_form_for(@customer,url:update_customer_path,html:{autocomplete:'off',method: :put},:validate => true) do |f| %>
+                     <%= render 'customers/partials/fields', f: f %>
+              <% end %>
+            </div> 
+         </div>    
+     </div>
+</div> 

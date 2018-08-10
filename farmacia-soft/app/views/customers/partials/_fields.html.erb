@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="input-field col s6">
+        <%= f.text_field :first_name, autofocus: true,maxlength:'25',class: 'validate'  %>
+        <%= f.label 'Nombre' %>
+    </div>
+    <div class="input-field col s6">
+        <%= f.text_field :last_name, autofocus: true, maxlength:'25',class: 'validate'  %>
+        <%= f.label 'Apellido' %>
+    </div>
+</div>
+<div class="row">
+    <div class="input-field col s6">
+       <%= f.text_field :doc_number, autofocus: true, maxlength: '15',class: 'validate'  %>
+       <%= f.label 'Nro. Documento' %>
+    </div>
+    <div class="input-field col s6">
+        <%= f.date_field :birthdate,autofocus: true, maxlength: '10',class: 'validate' %>
+        <%= f.label 'Fecha Nacimiento' %>
+    </div>
+ </div>
+ <div class="row">
+     <div class="input-field col s6">  
+       <%=f.text_area :address,autofocus: true, class: 'materialize-textarea', maxlength:'200'%>
+       <%= f.label 'Dirección' %>
+     </div>
+      <div class="input-field col s6">  
+       <%=f.text_field :phone,autofocus: true, maxlength:'20'%>
+       <%= f.label 'Telefono' %>
+     </div>
+ </div>
+  <div class="row">
+     <div class="input-field col s6">  
+       <%=f.select(:sexo,[ ['-- Seleccione --',''], ['Masculino','M'], ['Femenino','F'] ],class: 'select-dropdown')%>
+       <%= f.label 'Sexo' %>
+     </div>
+ </div>
+  <div class="row">
+      <div class="input-field col s12">
+         <%= f.submit "Guardar " ,class: 'btn cyan waves-effect waves-light right'  %>
+         <%= f.button :button, 'Cancelar', type: :reset, class: 'btn grey right' %>
+       </div>
+  </div>
