@@ -77,6 +77,8 @@ GEM
     ffi (1.9.25-x86-mingw32)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    html5_validators (1.8.0)
+      activemodel
     i18n (1.0.1)
       concurrent-ruby (~> 1.0)
     jbuilder (2.7.0)
@@ -212,6 +214,7 @@ DEPENDENCIES
   client_side_validations
   client_side_validations-simple_form
   coffee-rails (~> 4.2)
+  html5_validators
   jbuilder (~> 2.5)
   jquery-rails
   jquery-validation-rails

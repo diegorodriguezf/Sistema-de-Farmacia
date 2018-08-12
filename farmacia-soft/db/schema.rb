@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20180809223356) do
     t.string "doc_number", limit: 15, null: false
     t.date "birthdate", null: false
     t.string "nationality", limit: 50
-    t.string "address", limit: 200,
+    t.string "address", limit: 200
     t.string "phone", limit: 20
     t.string "sexo", limit: 1, null: false
     t.datetime "created_at", null: false

@@ -1,7 +1,7 @@
 RailsExceptionHandler.configure do |config|
-   config.environments = [:development, :test, :production]                # Defaults to [:production]
-   config.fallback_layout = 'home'                                         # Defaults to 'application'
-   config.after_initialize do
+  config.environments = [:development, :test, :production]                # Defaults to [:production]
+  config.fallback_layout = 'home'                                         # Defaults to 'application'
+  config.after_initialize do
   #   # This block will be called after the initialization is done.
   #   # Usefull for interaction with authentication mechanisms, which should
   #   # only happen when the exception handler is enabled.
@@ -18,7 +18,7 @@ RailsExceptionHandler.configure do |config|
   # !!! IMPORTANT !!!
   # You must remove public/500.html and public/404.html for these to have any effect
   config.responses = {
-    :default => "<h1>500</h1><p>Error interno el el servidor</p>",
+    :default => "<h1>500</h1><p>Error Interno en el Servidor</p>",
     :not_found => "<h1>404</h1><p>Página no encontrada</p>"
   }
 
@@ -32,9 +32,9 @@ RailsExceptionHandler.configure do |config|
   config.storage_strategies = [:active_record] # Available options: [:active_record, :rails_log, :remote_url => {:target => 'http://example.com'}]
 
   # Change database/table for the active_record storage strategy
-  config.active_record_store_in = {
+   config.active_record_store_in = {
     :database => 'development',
-    :record_table => 'error_messages'
+     :record_table => 'error_messages'
    }
 
 

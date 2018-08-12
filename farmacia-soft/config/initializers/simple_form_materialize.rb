@@ -19,6 +19,7 @@ SimpleForm.setup do |config|
     b.use :hint,  wrap_with: { tag: 'span', class: 'help-block' }
   end
 
+
   config.wrappers :materialize_text, tag: 'div', class: 'input-field col', error_class: 'has-error' do |b|
     b.use :html5
     b.use :placeholder
@@ -27,6 +28,16 @@ SimpleForm.setup do |config|
     b.optional :min_max
     b.optional :readonly
     b.use :input, class: 'materialize-textarea' 
+    b.use :label
+    b.use :error, wrap_with: { tag: 'small', class: 'error-block red-text text-darken-1' }
+    b.use :hint,  wrap_with: { tag: 'span', class: 'help-block' }
+  end
+
+  config.wrappers :materialize_select, tag: 'div', class: 'input-field col', error_class: 'has-error' do |b|
+    b.use :html5
+    b.use :placeholder
+    b.optional :readonly
+    b.use :select
     b.use :label
     b.use :error, wrap_with: { tag: 'small', class: 'error-block red-text text-darken-1' }
     b.use :hint,  wrap_with: { tag: 'span', class: 'help-block' }
@@ -100,6 +111,7 @@ SimpleForm.setup do |config|
   config.default_wrapper = :materialize_form
   config.wrapper_mappings = {
     text: :materialize_text,
+    select: :materialize_select,
     check_boxes: :materialize_radio_and_checkboxes,
     radio_buttons: :materialize_radio_and_checkboxes,
     file: :materialize_file_input,

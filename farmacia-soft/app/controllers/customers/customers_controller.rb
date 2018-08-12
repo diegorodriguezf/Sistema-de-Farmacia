@@ -15,7 +15,7 @@ class Customers::CustomersController < ApplicationController
        @customer = Customer.new(customer_params)
         if @customer.save
             flash[:notice] = 'Se ha guardado correctamente el registro'
-            redirect_to sign_up_path
+            redirect_to customer_new_path
         else
             render 'customers/new'
         end
@@ -34,7 +34,7 @@ class Customers::CustomersController < ApplicationController
                 format.html { redirect_to edit_customer_path(@customer)}
                 format.json { head :no_content }
            else
-            format.html { redirect_to edit_customer_path(@customer)}
+            format.html { render 'customers/edit'}
             format.json { render json: @customer.errors, status: :unprocessable_entity }
           end
         end

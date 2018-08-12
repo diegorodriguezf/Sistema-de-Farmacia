@@ -20,18 +20,23 @@
  </div>
  <div class="row">
      <div class="input-field col s6">  
+       <%=f.text_field :nationality,autofocus: true, maxlength:'50'%>
+       <%= f.label 'Nacionalidad' %>
+     </div>
+     <div class="input-field col s6">  
        <%=f.text_area :address,autofocus: true, class: 'materialize-textarea', maxlength:'200'%>
        <%= f.label 'Dirección' %>
      </div>
-      <div class="input-field col s6">  
-       <%=f.text_field :phone,autofocus: true, maxlength:'20'%>
-       <%= f.label 'Telefono' %>
-     </div>
+     
  </div>
   <div class="row">
      <div class="input-field col s6">  
-       <%=f.select(:sexo,[ ['-- Seleccione --',''], ['Masculino','M'], ['Femenino','F'] ],class: 'select-dropdown')%>
-       <%= f.label 'Sexo' %>
+       <%=f.text_field :phone,autofocus: true, maxlength:'20'%>
+       <%= f.label 'Telefono' %>
+     </div>
+     <div class="input-field col s4">      
+       <%=f.select(:sexo,[ ['Masculino','M'], ['Femenino','F'] ],class: 'form-control',validate: true)%>
+          <%= f.label 'Sexo' %>
      </div>
  </div>
   <div class="row">
