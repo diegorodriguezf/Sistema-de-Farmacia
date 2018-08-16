@@ -70,6 +70,9 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
     crass (1.0.4)
+    date_validator (0.9.0)
+      activemodel
+      activesupport
     erubi (1.7.1)
     execjs (2.7.0)
     faraday (0.12.2)
@@ -214,6 +217,7 @@ DEPENDENCIES
   client_side_validations
   client_side_validations-simple_form
   coffee-rails (~> 4.2)
+  date_validator
   html5_validators
   jbuilder (~> 2.5)
   jquery-rails

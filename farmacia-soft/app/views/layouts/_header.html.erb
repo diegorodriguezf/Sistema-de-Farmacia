@@ -62,9 +62,9 @@
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-menu cyan-text" href="#!" data-activates="eCommersdropdown">
+                        <a class="dropdown-menu cyan-text" href="#!" data-activates="Ventasdropdown">
                             <i class="mdi-action-shopping-cart"></i>
-                            <span>eCommers<i class="mdi-navigation-arrow-drop-down right"></i></span>
+                            <span>Ventas<i class="mdi-navigation-arrow-drop-down right"></i></span>
                         </a>
                     </li>                    
                     <li>
@@ -131,10 +131,11 @@
                 </ul>
 
                 <!-- eCommers -->
-                <ul id="eCommersdropdown" class="dropdown-content dropdown-horizontal-list">
-                    <li><a href="eCommerce-products-page.html"  class="cyan-text">eCommerce Products </a></li>
-                    <li><a href="eCommerce-pricing.html"  class="cyan-text">Pricing Page</a></li>
-                    <li><a href="eCommerce-invoice.html"  class="cyan-text">Invoice</a></li>
+                <ul id="Ventasdropdown" class="dropdown-content dropdown-horizontal-list">
+                    <li> <%= link_to 'Agregar Cliente', cliente_new_path, class: "cyan-text" %></li> 
+                    <li> <%= link_to 'Lista de Cliente', cliente_index_path, class: "cyan-text" %></li>
+                    <li> <%= link_to 'Agregar Timbrado', timbrado_new_path, class: "cyan-text" %></li> 
+                    <li> <%= link_to 'Lista de Timbrados', timbrado_index_path, class: "cyan-text" %></li>
                 </ul>
 
                 <!-- Mediasdropdown -->

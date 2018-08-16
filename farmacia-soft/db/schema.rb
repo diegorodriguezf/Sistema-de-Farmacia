@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180809223356) do
+ActiveRecord::Schema.define(version: 20180813214722) do
 
-  create_table "customers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.string "first_name", limit: 25, null: false
-    t.string "last_name", limit: 25, null: false
-    t.string "doc_number", limit: 15, null: false
-    t.date "birthdate", null: false
-    t.string "nationality", limit: 50
-    t.string "address", limit: 200
-    t.string "phone", limit: 20
+  create_table "clientes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string "nombre", limit: 25, null: false
+    t.string "apellido", limit: 25, null: false
+    t.string "nro_documento", limit: 15, null: false
+    t.date "nacimiento", null: false
+    t.string "nacionalidad", limit: 50
+    t.string "direccion", limit: 200
+    t.string "telefono", limit: 20
     t.string "sexo", limit: 1, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -38,6 +38,19 @@ ActiveRecord::Schema.define(version: 20180809223356) do
     t.string "doc_root"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "timbrados", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.integer "timbrado", null: false
+    t.string "serie", limit: 10, null: false
+    t.integer "nro_desde", null: false
+    t.integer "nro_hasta", null: false
+    t.date "fecha_circulacion", null: false
+    t.date "fecha_expiracion", null: false
+    t.boolean "estado", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["timbrado"], name: "index_timbrados_on_timbrado", unique: true
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|

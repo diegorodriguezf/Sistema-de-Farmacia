@@ -1,0 +1,37 @@
+  <div id="table-datatables">
+       <div class="row">
+          <div class="col s9  offset-s1">
+             <h4 class="header">Lista de Timbrados</h4>
+             <table id="data-table-simple" class="responsive-table display" cellspacing="0">
+                <thead>
+                    <tr>
+                       <th>Nro. Timbrado </th>
+                       <th>Serie</th>
+                       <th>Nro Desde</th>
+                       <th>Nro Hasta</th>
+                       <th>Fecha Inicial</th>
+                       <th>Fecha Final</th>
+                       <th>Estado</th>
+                       <th>Acciones</th>
+                    </tr>
+                 </thead>
+                <tbody>
+                   <% @timbrados.each do |timbrado| %> 
+                      <tr>
+                        <td><%= timbrado.timbrado.to_s %></td>
+                        <td><%= timbrado.serie %></td>
+                        <td><%= timbrado.nro_desde.to_s %></td>
+                        <td><%= timbrado.nro_hasta.to_s %></td>
+                        <td><%= timbrado.fecha_circulacion.to_s %></td>
+                        <td><%= timbrado.fecha_expiracion.to_s %></td>
+                         <td><%= timbrado.estado.to_s %></td>
+                        <td><i class="mdi-content-create prefix" title="editar"></i><%= link_to "Editar", edit_timbrado_path(timbrado) %> &nbsp &nbsp &nbsp   
+                            <i class="mdi-action-delete prefix" title="borrar"></i><%= link_to "Eliminar", destroy_timbrado_path(timbrado), :method => :delete, data: { confirm:"Desea Eliminar el Timbrado "+timbrado.timbrado.to_s}  %></td>
+                      </tr>
+                   <% end %>   
+                </tbody> 
+             </table>    
+        </div>
+      </div>         
+  </div>  
+ 

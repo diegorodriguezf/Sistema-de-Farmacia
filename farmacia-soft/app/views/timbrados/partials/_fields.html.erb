@@ -1,0 +1,45 @@
+<div class="row">
+    <div class="input-field col s6">
+        <%= f.text_field :timbrado, autofocus: true,maxlength:'10',class: 'validate'  %>
+        <%= f.label 'Timbrado' %>
+    </div>
+    <div class="input-field col s6">
+        <%= f.text_field :serie, autofocus: true, maxlength:'10',class: 'validate'  %>
+        <%= f.label 'Serie' %>
+    </div>
+</div>
+<div class="row">
+    <div class="input-field col s6">
+       <%= f.text_field :nro_desde, autofocus: true, maxlength: '15',class: 'validate'  %>
+       <%= f.label 'Nro Desde' %>
+    </div>
+    <div class="input-field col s6">
+       <%= f.text_field :nro_hasta, autofocus: true, maxlength: '15',class: 'validate'  %>
+       <%= f.label 'Nro Hasta' %>
+    </div>
+ </div>
+ <div class="row">
+     <div class="input-field col s6">  
+        <%= f.date_field :fecha_circulacion,autofocus: true, maxlength: '10',class: 'validate' %>
+        <%= f.label 'Fecha Apertura' %>
+     </div>
+     <div class="input-field col s6">  
+        <%= f.date_field :fecha_expiracion,autofocus: true, maxlength: '10',class: 'validate' %>
+        <%= f.label 'Fecha Vencimiento' %>
+     </div>   
+ </div>
+ <div class="row">
+   <div class="col s4 m8 l4">
+      <%= f.label 'Activo:'%>
+      <%= f.radio_button :estado, true,id:'state_true'%>
+      <%= f.label 'Si',for: 'state_true'%>
+      <%= f.radio_button :estado, false, id: 'state_false'%>
+      <%= f.label 'No',for: 'state_false'%>
+   </div> 
+ </div>
+  <div class="row">
+      <div class="input-field col s12">
+         <%= f.submit "Guardar " ,class: 'btn cyan waves-effect waves-light right'  %>
+         <%= f.button :button, 'Cancelar', type: :reset, class: 'btn grey right' %>
+       </div>
+  </div>
