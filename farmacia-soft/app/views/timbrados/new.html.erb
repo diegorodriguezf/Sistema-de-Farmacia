@@ -1,5 +1,5 @@
 <div class="row">
-     <div class="col s6 offset-s3">
+     <div class="col s5 offset-s3">
          <div class="card-panel">
              <% if flash[:notice]%>
                  <div id="card-alert" class="card green col s10 offset-s1">
@@ -10,10 +10,10 @@
               <% end %>
            
             <div class="row">
-               <%= simple_form_for(@customer,url:customer_create_path,html:{autocomplete:'off'},validate: true) do |f| %>
+               <%= simple_form_for(@timbrado,url:timbrado_create_path,html:{autocomplete:'off'},validate: true) do |f| %>
                  <%= render 'layouts/error_messages', f: f %>
-                  <h4 class="header2">Customer Form</h4>
-                 <%= render 'customers/partials/fields', f: f %>
+                  <h4 class="header2">Timbrado Form</h4>
+                 <%= render 'timbrados/partials/fields', f: f %>
                <% end %>
             </div> 
          </div>    

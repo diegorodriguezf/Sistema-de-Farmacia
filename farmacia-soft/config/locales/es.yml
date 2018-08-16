@@ -1,0 +1,16 @@
+
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+es:  
+  errors:  
+    messages:  
+      blank: "El campo no puede estar vacio"
+      invalid: "El dato que intenta ingresar no es válido"
+      too_long: "Longitud máxima permitido a ingresar:%{count} caracter/es"
+      too_short: "Longitud de datos mínima requerida: %{count} caracter/es"
+      unique: "El campo que desea ingresar ya existe"
+      less_than: "La cantidad tiene que ser menor a: %{count}"
+      greater_than: "La cantidad tiene que ser mayor a %{count}"
+      greater_than_or_equal_to: "No puede ingresar números negativos o cero"
+      not_a_number: "El campo debe ser numérico"
+      greater_than_date: "El campo debe ser mayor a fecha_circulacion"

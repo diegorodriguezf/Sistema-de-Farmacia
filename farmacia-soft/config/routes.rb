@@ -15,13 +15,28 @@ Rails.application.routes.draw do
           get 'user/:id/show' => 'users/users#show', as: 'user_show'
           delete '/user/:id' => 'users/users#destroy', as: 'destroy_user'
           get 'users/index' => 'users/users#index', as: 'index' 
-          # Customer
-          get '/customer/new' => 'customers/customers#new', as: 'customer_new'
-          post '/customer' => 'customers/customers#create', as: 'customer_create'
-          get 'customer/:id/edit' => 'customers/customers#edit', as: 'edit_customer'
-          put '/customer/:id' => 'customers/customers#update', as: 'update_customer'
-          delete '/customer/:id' => 'customers/customers#destroy', as: 'destroy_customer'
-          get 'customers/index' => 'customers/customers#index', as: 'customer_index' 
+          # cliente
+          get '/cliente/new' => 'clientes/clientes#new', as: 'cliente_new'
+          post '/cliente' => 'clientes/clientes#create', as: 'cliente_create'
+          get 'cliente/:id/edit' => 'clientes/clientes#edit', as: 'edit_cliente'
+          put '/cliente/:id' => 'clientes/clientes#update', as: 'update_cliente'
+          delete '/cliente/:id' => 'clientes/clientes#destroy', as: 'destroy_cliente'
+          get 'clientes/index' => 'clientes/clientes#index', as: 'cliente_index' 
+          # Timbrado
+          get '/timbrado/new' => 'timbrados/timbrados#new', as: 'timbrado_new'
+          post '/timbrado' => 'timbrados/timbrados#create', as: 'timbrado_create'
+          get 'timbrado/:id/edit' => 'timbrados/timbrados#edit', as: 'edit_timbrado'
+          put '/timbrado/:id' => 'timbrados/timbrados#update', as: 'update_timbrado'
+          delete '/timbrado/:id' => 'timbrados/timbrados#destroy', as: 'destroy_timbrado'
+          get 'timbrados/index' => 'timbrados/timbrados#index', as: 'timbrado_index' 
+          # Configuracion
+          get '/configuracion/new' => 'configuraciones/configuraciones#new', as: 'configuracion_new'
+          post '/configuracion' => 'configuraciones/configuraciones#create', as: 'configuracion_create'
+          get 'configuracion/:id/edit' => 'configuraciones/configuraciones#edit', as: 'edit_configuracion'
+          put '/configuracion/:id' => 'configuraciones/configuraciones#update', as: 'update_configuracion'
+          delete '/configuracion/:id' => 'configuraciones/configuraciones#destroy', as: 'destroy_configuracion'
+          get 'configuracion/index' => 'configuraciones/configuraciones#index', as: 'configuracion_index' 
+  
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

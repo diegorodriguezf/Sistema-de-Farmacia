@@ -13,4 +13,8 @@
 # These inflection rules are supported but not enabled by default:
  ActiveSupport::Inflector.inflections(:en) do |inflect|
 #   inflect.acronym 'RESTful'
+   inflect.irregular 'user', 'users'
+   inflect.irregular 'cliente', 'clientes'
+   inflect.irregular 'timbrado', 'timbrados'
+   inflect.irregular 'configuracion', 'configuraciones'
 end
