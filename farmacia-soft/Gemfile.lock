@@ -86,7 +86,7 @@ GEM
       activesupport (>= 4.2.0)
     html5_validators (1.8.0)
       activemodel
-    i18n (1.0.1)
+    i18n (1.1.0)
       concurrent-ruby (~> 1.0)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
@@ -203,7 +203,7 @@ GEM
       thread_safe (~> 0.1)
     tzinfo-data (1.2018.5)
       tzinfo (>= 1.0.0)
-    uglifier (4.1.17)
+    uglifier (4.1.18)
       execjs (>= 0.3.0, < 3)
     web-console (3.6.2)
       actionview (>= 5.0)
