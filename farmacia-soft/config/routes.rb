@@ -30,13 +30,8 @@ Rails.application.routes.draw do
           delete '/timbrado/:id' => 'timbrados/timbrados#destroy', as: 'destroy_timbrado'
           get 'timbrados/index' => 'timbrados/timbrados#index', as: 'timbrado_index' 
           # Configuracion
-          get '/configuracion/new' => 'configuraciones/configuraciones#new', as: 'configuracion_new'
-          post '/configuracion' => 'configuraciones/configuraciones#create', as: 'configuracion_create'
           get 'configuracion/:id/edit' => 'configuraciones/configuraciones#edit', as: 'edit_configuracion'
           put '/configuracion/:id' => 'configuraciones/configuraciones#update', as: 'update_configuracion'
-          delete '/configuracion/:id' => 'configuraciones/configuraciones#destroy', as: 'destroy_configuracion'
-          get 'configuracion/index' => 'configuraciones/configuraciones#index', as: 'configuracion_index' 
-  
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

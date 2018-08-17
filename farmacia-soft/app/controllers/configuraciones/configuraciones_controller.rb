@@ -7,20 +7,6 @@ class Configuraciones::ConfiguracionesController < ApplicationController
   # GET /resource/sign_up
     before_action :require_login
 
-   def new
-     @configuracion=Configuracion.new
-     render 'configuraciones/new'
-   end
-   def create
-       @configuracion = Configuracion.new(configuracion_params)
-        if @configuracion.save
-            flash[:notice] = 'Se ha guardado correctamente el registro'
-            redirect_to configuracion_new_path
-        else
-            render 'configuraciones/new'
-        end
-   end
-
   def edit
      @configuracion = Configuracion.find(params[:id])
       render 'configuraciones/edit'
@@ -38,29 +24,6 @@ class Configuraciones::ConfiguracionesController < ApplicationController
             format.json { render json: @configuracion.errors, status: :unprocessable_entity }
           end
         end
-  end
-
-  def index
-    @configuraciones =Configuracion.all
-    respond_to do |format|
-      format.html {render 'configuraciones/index'}
-      format.json { render json: @configuraciones }
-    end
-  end
-
-  def destroy 
-    @configuracion = Configuracion.find(params[:id])
-    begin
-      @configuracion.destroy
-      flash[:succesfull]= "Los datos del configuracion han sido eliminados"
-      rescue
-      flash[:error]= "Los datos del configuracion no se pueden eliminar"
-      ensure
-      respond_to do |format|
-        format.html { redirect_to configuracion_index_path }
-        format.json { head :no_content }
-      end
-    end
   end
 
   def configuracion_params

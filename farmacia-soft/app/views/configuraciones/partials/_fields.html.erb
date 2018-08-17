@@ -1,31 +1,31 @@
 <div class="row">
     <div class="input-field col s6">
-        <%= f.text_field :nombre, autofocus: true,maxlength:'25',class: 'validate'  %>
-        <%= f.label 'Nombre' %>
+        <%= f.file_field :logo_path,class: 'file-path validate'  %>
+        <%= f.label 'Logo' %>
     </div>
     <div class="input-field col s6">
-        <%= f.text_field :apellido, autofocus: true, maxlength:'25',class: 'validate'  %>
-        <%= f.label 'Apellido' %>
+        <%= f.text_field :nombre_empresa, autofocus: true, maxlength:'50',class: 'validate'  %>
+        <%= f.label 'Empresa' %>
     </div>
 </div>
 <div class="row">
     <div class="input-field col s6">
-       <%= f.text_field :nro_documento, autofocus: true, maxlength: '15',class: 'validate'  %>
-       <%= f.label 'Nro. Documento' %>
+       <%= f.text_field :nombre_fantasia, autofocus: true, maxlength: '50' %>
+       <%= f.label 'Nombre Fantasia' %>
     </div>
     <div class="input-field col s6">
-        <%= f.date_field :nacimiento,autofocus: true, maxlength: '10',class: 'validate' %>
-        <%= f.label 'Fecha Nacimiento' %>
+        <%= f.date_field :ruc,autofocus: true, maxlength: '11' %>
+        <%= f.label 'RUC' %>
     </div>
  </div>
  <div class="row">
-     <div class="input-field col s6">  
-       <%=f.text_field :nacionalidad,autofocus: true, maxlength:'50'%>
-       <%= f.label 'Nacionalidad' %>
-     </div>
-     <div class="input-field col s6">  
+   <div class="input-field col s6">  
        <%=f.text_area :direccion,autofocus: true, class: 'materialize-textarea', maxlength:'200'%>
        <%= f.label 'Dirección' %>
+   </div>    
+     <div class="input-field col s6">  
+       <%=f.text_field :telefono,autofocus: true, maxlength:'20'%>
+       <%= f.label 'Telefono' %>
      </div>
      
  </div>
