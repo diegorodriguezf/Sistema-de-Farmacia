@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180813214722) do
+ActiveRecord::Schema.define(version: 20180815221859) do
 
   create_table "clientes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "nombre", limit: 25, null: false
@@ -21,6 +21,18 @@ ActiveRecord::Schema.define(version: 20180813214722) do
     t.string "direccion", limit: 200
     t.string "telefono", limit: 20
     t.string "sexo", limit: 1, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "configuraciones", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string "nombre_empresa", limit: 50, null: false
+    t.string "nombre_fantasia", limit: 50
+    t.string "logo_path", limit: 100
+    t.string "ruc", limit: 11
+    t.string "direccion", limit: 100
+    t.string "telefono", limit: 20
+    t.integer "timbrado_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

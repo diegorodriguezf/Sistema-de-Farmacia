@@ -7,7 +7,7 @@ class Configuraciones < ActiveRecord::Migration[5.1]
       t.string :ruc, limit:11, :null => true
       t.string :direccion, limit: 100, :null => true
       t.string :telefono, :null => true, limit:20 
-      t.integer :timbrado_id,  :null => false,  :limit => 20
+      t.integer :timbrado_id,  :null => false
       t.timestamps
     end
   end

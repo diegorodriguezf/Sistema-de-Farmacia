@@ -27,6 +27,7 @@ Rails.application.routes.draw do
           post '/timbrado' => 'timbrados/timbrados#create', as: 'timbrado_create'
           get 'timbrado/:id/edit' => 'timbrados/timbrados#edit', as: 'edit_timbrado'
           put '/timbrado/:id' => 'timbrados/timbrados#update', as: 'update_timbrado'
+          get 'timbrado/:id/show' => 'timbrados/timbrados#show', as: 'timbrado_show'
           delete '/timbrado/:id' => 'timbrados/timbrados#destroy', as: 'destroy_timbrado'
           get 'timbrados/index' => 'timbrados/timbrados#index', as: 'timbrado_index' 
           # Configuracion

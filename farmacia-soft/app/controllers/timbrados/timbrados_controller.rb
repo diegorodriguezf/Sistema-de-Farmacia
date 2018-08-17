@@ -34,6 +34,17 @@ class Timbrados::TimbradosController < ApplicationController
           end
         end
   end
+  
+  def create
+    @timbrado = Timbrado.find(params[:id])
+      respond_to do |format|
+        if @timbrado
+          format.js { render 'sessions/go_to_dashboard'}
+        else
+          format.js { render 'sessions/error_authentication', content_type: 'text/javascript'  }
+        end
+      end
+  end
 
   def index
     @timbrados =Timbrado.all

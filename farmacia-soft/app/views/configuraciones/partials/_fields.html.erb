@@ -14,7 +14,7 @@
        <%= f.label 'Nombre Fantasia' %>
     </div>
     <div class="input-field col s6">
-        <%= f.date_field :ruc,autofocus: true, maxlength: '11' %>
+        <%= f.text_field :ruc,autofocus: true, maxlength: '11' %>
         <%= f.label 'RUC' %>
     </div>
  </div>
@@ -30,14 +30,13 @@
      
  </div>
   <div class="row">
-     <div class="input-field col s6">  
-       <%=f.text_field :telefono,autofocus: true, maxlength:'20'%>
-       <%= f.label 'Telefono' %>
+     <div class="input-select col s3">  
+       <%= f.label 'Timbrado' %>
+       <%= f.collection_select :timbrado_id,Timbrado.where(estado: 1).order(created_at: :asc),:id,:timbrado,:selected => 1, class: '' %>
      </div>
-     <div class="input-field col s4">      
-       <%=f.select(:sexo,[ ['Masculino','M'], ['Femenino','F'] ],class: 'form-control',validate: true)%>
-          <%= f.label 'Sexo' %>
-     </div>
+      <div class="input-field col s2">  
+          <%= link_to '<i class="mdi-action-visibility prefix "></i>'.html_safe, '', title: 'Ver',class: 'cyan-text' %>
+      </div>
  </div>
   <div class="row">
       <div class="input-field col s12">

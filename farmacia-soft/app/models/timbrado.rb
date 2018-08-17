@@ -1,4 +1,6 @@
 class Timbrado < ApplicationRecord
+
+  has_many :configuraciones
   # validaciones de timbrados
   validates :timbrado,:serie,:nro_desde,:nro_hasta,:fecha_circulacion,:fecha_expiracion,presence: true
   validates :timbrado,numericality: true

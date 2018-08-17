@@ -17,3 +17,32 @@ if @user.blank?
         )
       user.save!
 end
+
+# timbrado seede create
+@timbrado=Timbrado.first()
+if @timbrado.blank?
+	timbrado = Timbrado.new(
+        timbrado: '123123',
+	    serie: '101-101',
+		nro_desde: 1000 ,
+	    nro_hasta: 3000,
+	    fecha_circulacion: Date.today,
+	    fecha_expiracion: Date.today.year.to_s + '/12/31',
+	    estado: 1
+        )
+      timbrado.save!
+end
+# configuracion  seeder create
+@configuracion=Configuracion.first()
+if @configuracion.blank?
+	configuracion = Configuracion.new(
+        nombre_empresa: 'Punto Farma',
+	    nombre_fantasia: 'Punto Farma',
+		logo_path: '/images/logo.png' ,
+	    ruc: '80002502-2',
+	    direccion: 'Avda. Caballero c/Carlos Antonio López',
+	    telefono: '+595981526028',
+        timbrado_id: Timbrado.first().id
+        )
+      configuracion.save!
+end
