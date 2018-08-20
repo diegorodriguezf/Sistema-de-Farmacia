@@ -9,7 +9,8 @@ class Configuraciones::ConfiguracionesController < ApplicationController
 
   def edit
      @configuracion = Configuracion.find(params[:id])
-      render 'configuraciones/edit'
+     actives_stamps
+     render 'configuraciones/edit'
   end
 
    def update
@@ -28,5 +29,9 @@ class Configuraciones::ConfiguracionesController < ApplicationController
 
   def configuracion_params
         params.require(:configuracion).permit(:nombre_empresa, :nombre_fantasia,:logo_path,:ruc,:direccion,:telefono,:timbrado_id)
+  end
+
+  def actives_stamps
+     @stamps=Timbrado.where(estado: 1).order(created_at: :asc)
   end
 end

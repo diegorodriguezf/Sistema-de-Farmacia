@@ -1,0 +1,15 @@
+
+ <% if f.object.errors.any? %>
+   <div id="card-alert" class="card red col s10 offset-s1">
+     <div id="error_explanation" class="card-content white-text">             
+         <ul>
+            <% f.object.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+         </ul>
+      </div>
+      <%= button_tag '', :type => 'button','data-dismiss'=>'alert',class: 'close white-text', 'aria-label'=>'Close'  do %>
+          <span aria-hidden="true">×</span>
+      <% end %>
+   </div>
+<% end %>

@@ -1,7 +1,12 @@
 <div class="row">
-    <div class="input-field col s6">
-        <%= f.file_field :logo_path,class: 'file-path validate'  %>
-        <%= f.label 'Logo' %>
+    <div class="file-field input-field col s6 m3 l6">
+         <div class="waves-effect waves-light btn blue col s3">
+            <span>Logo</span>
+             <%= f.file_field :logo_path  %>
+         </div>
+         <div class="file-path-wrapper">
+            <%= f.text_field :logo_path,class: 'file-path validate'  %>
+         </div>
     </div>
     <div class="input-field col s6">
         <%= f.text_field :nombre_empresa, autofocus: true, maxlength:'50',class: 'validate'  %>
@@ -31,11 +36,19 @@
  </div>
   <div class="row">
      <div class="input-select col s3">  
-       <%= f.label 'Timbrado' %>
-       <%= f.collection_select :timbrado_id,Timbrado.where(estado: 1).order(created_at: :asc),:id,:timbrado,:selected => 1, class: '' %>
+           <div ng-controller="timbradoCtrl">
+               {{ hello }}
+               <%= f.label 'Timbrado' %>
+               <select ng-model="stamps" name='configuracion[timbrado_id]'  ng-change= 'change()'>
+                 <% @stamps.each do |stamp| %>
+                     <option value= <%= stamp.id%> > <%= stamp.timbrado%> </option>
+                 <% end %> 
+               </select>
+             
+            </div>  
      </div>
       <div class="input-field col s2">  
-          <%= link_to '<i class="mdi-action-visibility prefix "></i>'.html_safe, '', title: 'Ver',class: 'cyan-text' %>
+          <%= link_to '<i class="mdi-action-visibility prefix "></i>'.html_safe,'#', title: 'Ver',class: 'cyan-text modal-trigger',remote: true %>
       </div>
  </div>
   <div class="row">
