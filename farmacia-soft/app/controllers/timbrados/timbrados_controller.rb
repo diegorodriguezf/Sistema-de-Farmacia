@@ -40,7 +40,7 @@ class Timbrados::TimbradosController < ApplicationController
        respond_to do |format|
          if @timbrado
            format.html { render 'timbrados/show'}
-           format.js { render 'configuraciones/open_timbrado_modal'}
+           format.js { render 'timbrados/popup_show'}
          end
        end
   end

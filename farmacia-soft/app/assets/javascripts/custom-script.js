@@ -16,10 +16,14 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR CUSTOM SCRIPT I
 /* angular js */
 
 var app = angular.module('pharmacyApp', []);
-app.controller('timbradoCtrl', function($scope){
+/*app.controller('timbradoCtrl', function($scope){
 	$scope.hello='Hola';
 	 $scope.change = function() {
 	 	window.alert();
 	    $scope.sayHello = 'Hello';
 	  }
-});
+});*/
+
+ function timbradoChange(item){
+    $('#timbrado_show').attr('href','/timbrado/'+item.value+'/show');
+}
