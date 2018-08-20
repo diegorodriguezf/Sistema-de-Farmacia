@@ -35,21 +35,22 @@
      
  </div>
   <div class="row">
-     <div class="input-select col s3">  
-           <div ng-controller="timbradoCtrl">
-               {{ hello }}
+    <div ng-controller="timbradoCtrl">
+        <div class="input-select col s3">  
+          
                <%= f.label 'Timbrado' %>
-               <select ng-model="stamps" name='configuracion[timbrado_id]'  ng-change= 'change()'>
+               <select  name='configuracion[timbrado_id]'  ng-change= 'change()' ng-model='stamp_id'>
                  <% @stamps.each do |stamp| %>
                      <option value= <%= stamp.id%> > <%= stamp.timbrado%> </option>
                  <% end %> 
                </select>
              
             </div>  
-     </div>
+   
       <div class="input-field col s2">  
-          <%= link_to '<i class="mdi-action-visibility prefix "></i>'.html_safe,'#', title: 'Ver',class: 'cyan-text modal-trigger',remote: true %>
+          <%= link_to '<i class="mdi-action-visibility prefix "></i>'.html_safe,'timbrado/{{stamp_id}}/show', title: 'Ver',class: 'cyan-text modal-trigger',remote: true %>
       </div>
+    </div>
  </div>
   <div class="row">
       <div class="input-field col s12">
