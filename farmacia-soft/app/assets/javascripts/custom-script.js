@@ -25,5 +25,5 @@ var app = angular.module('pharmacyApp', []);
 });*/
 
  function timbradoChange(item){
-    $('#timbrado_show').attr('href','/timbrado/'+item.value+'/show');
+    $('#timbrado_show').attr('href','timbrado/'+item.value+'/show');
 }

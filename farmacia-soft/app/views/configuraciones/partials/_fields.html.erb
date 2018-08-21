@@ -45,7 +45,7 @@
     </div>  
    
       <div class="input-field col s2">  
-          <%= link_to '<i class="mdi-action-visibility prefix "></i>'.html_safe,timbrado_show_path(@configuracion.timbrado), id: 'timbrado_show',title: 'Ver',class: 'cyan-text modal-trigger',remote: true %>
+          <%= link_to '<i class="mdi-action-visibility prefix "></i>'.html_safe,timbrado_show_path(@configuracion.timbrado), id: 'timbrado_show',title: 'Ver',class: 'cyan-text',remote: true %>
       </div>
     </div>
  </div>
@@ -55,3 +55,6 @@
          <%= f.button :button, 'Cancelar', type: :reset, class: 'btn grey right' %>
        </div>
   </div>
+   <div id="modals-demo" class="section">
+       <%= render 'configuraciones/timbrado_popup'%>
+     </div> 
