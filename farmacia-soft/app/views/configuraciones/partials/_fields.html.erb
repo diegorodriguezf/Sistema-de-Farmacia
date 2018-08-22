@@ -43,11 +43,15 @@
         <% end %> 
       </select>
     </div>  
-   
-      <div class="input-field col s2">  
-          <%= link_to '<i class="mdi-action-visibility prefix "></i>'.html_safe,timbrado_show_path(@configuracion.timbrado), id: 'timbrado_show',title: 'Ver',class: 'cyan-text',remote: true %>
+      <div class="input-field col s5">
+          <%= link_to '<i class="mdi-action-visibility prefix "></i>'.html_safe,timbrado_show_path(@configuracion.timbrado), id: 'timbrado_show',title: 'Ver','data-activates': 'timbrado_data',class: 'cyan-text col s8 dropdown-button',remote: true %>
+          <div class="row">
+             <ul id="timbrado_data" class="dropdown-content"> 
+            </ul> 
+          </div>
       </div>
     </div>
+    <div class="row" id="timbrado_data"></div>
  </div>
   <div class="row">
       <div class="input-field col s12">
@@ -55,6 +59,3 @@
          <%= f.button :button, 'Cancelar', type: :reset, class: 'btn grey right' %>
        </div>
   </div>
-   <div id="modals-demo" class="section">
-       <%= render 'configuraciones/timbrado_popup'%>
-     </div> 
