@@ -7,9 +7,12 @@ class Timbrado < ApplicationRecord
   validates :timbrado, uniqueness: { case_sensitive: false }
   validates :nro_desde,numericality: true
   validates :nro_hasta,numericality: {greater_than: :nro_desde}
-  validates :fecha_expiracion, date: { after: :fecha_circulacion }
+  validates :fecha_expiracion, date: { after: :fecha_circulacion, message: 'debe ser mayor a fecha de apertura' }
 
- # def greater_than_date
+  def change_state_stamp_exp
+    timbrado = Timbrado.where('fecha_expiracion < ?',Date.today)
+    timbrado.update(:estado => 0)
+  end
    # return if [fecha_circulacion.blank?, fecha_expiracion.blank?].any?
    # if fecha_circulacion > fecha_expiracion
     #  errors.add(:fecha_expiracion, 'El campo debe ser mayor a fecha_circulacion')

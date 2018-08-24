@@ -1,0 +1,2 @@
+class PresentacionProducto < ApplicationRecord
+end
