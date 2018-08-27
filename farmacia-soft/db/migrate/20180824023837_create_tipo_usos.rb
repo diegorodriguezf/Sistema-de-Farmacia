@@ -1,7 +1,7 @@
 class CreateTipoUsos < ActiveRecord::Migration[5.1]
   def change
     create_table :tipo_usos do |t|
-      t.string :tipo_uso, limit: 25, :null => false
+      t.string :tipo_uso, limit: 35, :null => false
       t.timestamps
     end
   end

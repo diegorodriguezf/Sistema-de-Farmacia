@@ -1,2 +1,0 @@
-class UsoProducto < ApplicationRecord
-end
