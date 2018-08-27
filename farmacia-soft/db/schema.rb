@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180815221859) do
+ActiveRecord::Schema.define(version: 20180825171301) do
 
   create_table "clientes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "nombre", limit: 25, null: false
@@ -52,6 +52,35 @@ ActiveRecord::Schema.define(version: 20180815221859) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "marcas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string "marca", limit: 25, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "medicamentos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string "nombre", limit: 35, null: false
+    t.string "descripcion", limit: 60
+    t.date "fecha_vencimiento", null: false
+    t.integer "present_med_id", null: false
+    t.integer "cant_comprimido", null: false
+    t.integer "cant_st_min", null: false
+    t.integer "cant_st_max", null: false
+    t.integer "precio_compra", null: false
+    t.integer "precio_venta", null: false
+    t.string "modo_aplicacion", limit: 20, null: false
+    t.string "especificacion", limit: 100
+    t.boolean "activo", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "presentacion_medicamentos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string "descripcion", limit: 25, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "timbrados", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer "timbrado", null: false
     t.string "serie", limit: 10, null: false
@@ -63,6 +92,19 @@ ActiveRecord::Schema.define(version: 20180815221859) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["timbrado"], name: "index_timbrados_on_timbrado", unique: true
+  end
+
+  create_table "tipo_medicamento_usos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string "tipo", limit: 25, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tipo_usos_medicamentos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.integer "medicamento_id", null: false
+    t.integer "tipo_medicamento_uso_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|

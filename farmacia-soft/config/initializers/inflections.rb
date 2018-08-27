@@ -17,9 +17,8 @@
    inflect.irregular 'cliente', 'clientes'
    inflect.irregular 'timbrado', 'timbrados'
    inflect.irregular 'configuracion', 'configuraciones'
-   inflect.irregular 'categoria_producto', 'categoria_productos'
-   inflect.irregular 'marca', 'marcas'
-   inflect.irregular 'presentacion_producto', 'presentacion_productos'
-   inflect.irregular 'uso_producto', 'uso_productos'
-   inflect.irregular 'producto', 'productos'
+   inflect.irregular 'tipo_uso', 'tipo_usos'
+   inflect.irregular 'presentacion_medicamento', 'presentacion_medicamentos'
+   inflect.irregular 'medicamento', 'medicamentos'
+   inflect.irregular 'tipo_uso_medicamento', 'tipo_usos_medicamentos'
 end

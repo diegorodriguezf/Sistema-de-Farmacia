@@ -30,6 +30,14 @@ Rails.application.routes.draw do
           get 'timbrado/:id/show' => 'timbrados/timbrados#show', as: 'timbrado_show'
           delete '/timbrado/:id' => 'timbrados/timbrados#destroy', as: 'destroy_timbrado'
           get 'timbrados/index' => 'timbrados/timbrados#index', as: 'timbrado_index' 
+          # medicamento
+          get '/medicamento/new' => 'medicamentos/medicamentos#new', as: 'medicamento_new'
+          post '/medicamento' => 'medicamentos/medicamentos#create', as: 'medicamento_create'
+          get 'medicamento/:id/edit' => 'medicamentos/medicamentos#edit', as: 'edit_medicamento'
+          put '/medicamento/:id' => 'medicamentos/medicamentos#update', as: 'update_medicamento'
+          get 'medicamento/:id/show' => 'medicamentos/medicamentos#show', as: 'medicamento_show'
+          delete '/medicamento/:id' => 'medicamentos/medicamentos#destroy', as: 'destroy_medicamento'
+          get 'medicamentos/index' => 'medicamentos/medicamentos#index', as: 'medicamento_index'
           # Configuracion
           get 'configuracion/:id/edit' => 'configuraciones/configuraciones#edit', as: 'edit_configuracion'
           put '/configuracion/:id' => 'configuraciones/configuraciones#update', as: 'update_configuracion'

@@ -46,3 +46,33 @@ if @configuracion.blank?
         )
       configuracion.save!
 end
+
+# presentación de medicamento create seeder
+@presen_med=PresentacionMedicamento.first()
+if @presen_med.blank?
+	presen_medicamentos = 
+	[
+	  {
+        descripcion: 'Capsulas',
+      },
+      {
+        descripcion: 'Tabletas',
+      },
+      {
+        descripcion: 'Envase',
+      }, 
+    ]
+	presen_medicamentos.each do |presen_med|  
+       PresentacionMedicamento.new(presen_med).save  
+    end
+end
+# tipo uso de medicamento create seeder
+@tipo_uso=TipoUso.first()
+if @tipo_uso.blank?
+	tipo_usos = [ {tipo: 'Analgesico',} {tipo: 'Antiinflamatorio',},{tipo: 'Laxante',},{tipo: 'Antialérgico', }, 
+                  {tipo: 'Antiácidos y antiulcerosos'},{tipo: 'Antiinfecciosos'}, {tipo: 'Antipiréticos'},
+                  {tipo: 'Antitusivos y mucolíticos'}, ]
+	tipo_usos.each do |tipo_uso|  
+       TipoUso.new(tipo_uso).save  
+    end  
+end

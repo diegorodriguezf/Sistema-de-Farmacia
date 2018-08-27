@@ -1,0 +1,67 @@
+<div class="row">
+    <div class="input-field col s6">
+        <%= f.text_field :nombre, autofocus: true,maxlength:'35',class: 'validate'  %>
+        <%= f.label 'Medicamento' %>
+    </div>
+    <div class="input-field col s6">
+        <%=f.text_area :descricpcion,autofocus: true, class: 'materialize-textarea', maxlength:'60'%>
+        <%= f.label 'Descricpción' %>
+    </div>
+</div>
+<div class="row">
+    <div class="input-field col s6">
+       <%= f.text_field :nro_documento, autofocus: true, maxlength: '15',class: 'validate'  %>
+       <%= f.label 'Nro. Documento' %>
+    </div>
+    <div class="input-field col s6">
+        <%= f.date_field :nacimiento,autofocus: true, maxlength: '10',class: 'validate' %>
+        <%= f.label 'Fecha Nacimiento' %>
+    </div>
+ </div>
+ <div class="row">
+     <div class="input-field col s6">  
+        <%= f.date_field :fecha_vencimiento,autofocus: true, maxlength: '10',class: 'validate' %>
+        <%= f.label 'Fecha Venc.' %>
+     </div>
+     <div class="input-field col s6">  
+       <%= f.collection_select(:present_med_id, PresentacionMedicamento.find(:all), :id, :descripcion, {}, {class: "validate"} )%>
+       <%= f.label 'Presentación' %>
+     </div> 
+ </div>
+  <div class="row">
+     <div class="input-field col s3">  
+       <%=f.text_field :cant_comprimida,autofocus: true, maxlength:'2'%>
+       <%= f.label 'Cant. Comprimida' %>
+     </div>
+     <div class="input-field col s3">  
+       <%=f.text_field :cant_st_min,autofocus: true, maxlength:'2'%>
+       <%= f.label 'Cant. Stock Min' %>
+     </div>
+
+ </div>
+ <div class='row'>
+     <div class="input-field col s3">  
+       <%=f.text_field :cant_st_max,autofocus: true, maxlength:'2'%>
+       <%= f.label 'Cant. Stock Max' %>
+     </div>
+      <div class="input-field col s3">  
+       <%=f.text_field :precio_compra,autofocus: true, maxlength:'6'%>
+       <%= f.label 'Precio Compra' %>
+     </div>
+ </div> 
+ <div class='row'>
+     <div class="input-field col s3">  
+       <%=f.text_field :precio_venta,autofocus: true, maxlength:'6'%>
+       <%= f.label 'Precio Venta' %>
+     </div>
+     <div class="input-field col s4">      
+       <%=f.select(:modo_aplicacion,[ ['Vía Oral','Vía Oral'], ['Vía Inyectable','Vía Inyectable'] ],class: 'form-control')%>
+          <%= f.label 'Modo Aplicación' %>
+     </div>
+ </div> 
+  <div class="row">
+      <div class="input-field col s12">
+         <%= f.submit "Guardar " ,class: 'btn cyan waves-effect waves-light right'  %>
+         <%= f.button :button, 'Cancelar', type: :reset, class: 'btn grey right' %>
+       </div>
+  </div>
