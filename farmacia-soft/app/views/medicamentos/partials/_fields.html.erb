@@ -14,40 +14,58 @@
         <%= f.label 'Fecha Venc.' %>
      </div>
      <div class="input-field col s4 offset-s2">
-       <%= f.collection_select(:present_med_id, PresentacionMedicamento.all, :id, :descripcion, {}, {class: "validate"} )%>
-       <%= f.label 'Presentación' %>
+        <%= f.autocomplete_field :tipo_uso_ids,autocomplete_tipoUso_tipo_uso_medicamentos_medicamentos_path,'data-delimiter' => ',', :multiple => true  %>
+        <%= f.label 'Tipo de Uso' %>
      </div>
  </div>
   <div class="row">
-     <div class="input-field col s3">
+    <div class="input-field col s4">
+      <%= f.collection_select(:present_med_id, PresentacionMedicamento.all, :id, :descripcion, {}, {class: "validate"} )%>
+      <%= f.label 'Presentación' %>
+    </div>
+     <div class="input-field col s3 offset-s2">
        <%=f.text_field :cant_comprimido,autofocus: true, maxlength:'3'%>
        <%= f.label 'Cant Comp' %>
      </div>
-     <div class="input-field col s3 offset-s3">
-       <%=f.text_field :cant_st_min,autofocus: true, maxlength:'3'%>
-       <%= f.label 'Cant Stock Min' %>
-     </div>
-
  </div>
  <div class='row'>
-     <div class="input-field col s3">
+   <div class="input-field col s3">
+     <%=f.text_field :cant_st_min,autofocus: true, maxlength:'3'%>
+     <%= f.label 'Cant Stock Min' %>
+   </div>
+     <div class="input-field col s3 offset-s3">
        <%=f.text_field :cant_st_max,autofocus: true, maxlength:'3'%>
        <%= f.label 'Cant Stock Max' %>
      </div>
-      <div class="input-field col s3 offset-s3">
-       <%=f.text_field :precio_compra,autofocus: true, maxlength:'6'%>
-       <%= f.label 'Precio Compra' %>
-     </div>
  </div>
  <div class='row'>
-     <div class="input-field col s3">
+   <div class="input-field col s3">
+    <%=f.text_field :precio_compra,autofocus: true, maxlength:'6'%>
+    <%= f.label 'Precio Compra' %>
+   </div>
+     <div class="input-field col s3 offset-s3">
        <%=f.text_field :precio_venta,autofocus: true, maxlength:'6'%>
        <%= f.label 'Precio Venta' %>
      </div>
-     <div class="input-field col s3 offset-s3">
-       <%=f.select(:modo_aplicacion,[ ['Vía Oral','Vía Oral'], ['Vía Inyectable','Vía Inyectable'] ],class: 'form-control')%>
-          <%= f.label 'Modo Aplicación' %>
+ </div>
+ <div class='row'>
+   <div class="input-field col s3">
+     <%=f.select(:modo_aplicacion,[ ['Vía Oral','Vía Oral'], ['Vía Inyectable','Vía Inyectable'] ],class: 'form-control')%>
+        <%= f.label 'Modo Aplicación' %>
+   </div>
+     <div class="input-field col s6 offset-s3">
+       <%=f.text_area :especificacion,autofocus: true, class: 'materialize-textarea', maxlength:'100'%>
+       <%= f.label 'Especificación' %>
      </div>
+ </div>
+ <div class='row'>
+   <div class="col s4 m8 l4">
+     <%= f.label 'Activo:'%>
+      <%= f.radio_button :activo, true,id:'state_true'%>
+      <%= f.label 'Si',for: 'state_true'%>
+      <%= f.radio_button :activo, false, id: 'state_false'%>
+      <%= f.label 'No',for: 'state_false'%>
+   </div>
  </div>
   <div class="row">
       <div class="input-field col s12">

@@ -14,14 +14,14 @@ Rails.application.routes.draw do
           put '/user/:id' => 'users/users#update', as: 'update_user'
           get 'user/:id/show' => 'users/users#show', as: 'user_show'
           delete '/user/:id' => 'users/users#destroy', as: 'destroy_user'
-          get 'users/index' => 'users/users#index', as: 'index' 
+          get 'users/index' => 'users/users#index', as: 'index'
           # cliente
           get '/cliente/new' => 'clientes/clientes#new', as: 'cliente_new'
           post '/cliente' => 'clientes/clientes#create', as: 'cliente_create'
           get 'cliente/:id/edit' => 'clientes/clientes#edit', as: 'edit_cliente'
           put '/cliente/:id' => 'clientes/clientes#update', as: 'update_cliente'
           delete '/cliente/:id' => 'clientes/clientes#destroy', as: 'destroy_cliente'
-          get 'clientes/index' => 'clientes/clientes#index', as: 'cliente_index' 
+          get 'clientes/index' => 'clientes/clientes#index', as: 'cliente_index'
           # Timbrado
           get '/timbrado/new' => 'timbrados/timbrados#new', as: 'timbrado_new'
           post '/timbrado' => 'timbrados/timbrados#create', as: 'timbrado_create'
@@ -29,7 +29,7 @@ Rails.application.routes.draw do
           put '/timbrado/:id' => 'timbrados/timbrados#update', as: 'update_timbrado'
           get 'timbrado/:id/show' => 'timbrados/timbrados#show', as: 'timbrado_show'
           delete '/timbrado/:id' => 'timbrados/timbrados#destroy', as: 'destroy_timbrado'
-          get 'timbrados/index' => 'timbrados/timbrados#index', as: 'timbrado_index' 
+          get 'timbrados/index' => 'timbrados/timbrados#index', as: 'timbrado_index'
           # medicamento
           get '/medicamento/new' => 'medicamentos/medicamentos#new', as: 'medicamento_new'
           post '/medicamento' => 'medicamentos/medicamentos#create', as: 'medicamento_create'
@@ -38,9 +38,14 @@ Rails.application.routes.draw do
           get 'medicamento/:id/show' => 'medicamentos/medicamentos#show', as: 'medicamento_show'
           delete '/medicamento/:id' => 'medicamentos/medicamentos#destroy', as: 'destroy_medicamento'
           get 'medicamentos/index' => 'medicamentos/medicamentos#index', as: 'medicamento_index'
+          namespace :medicamentos do
+            resources :medicamentos do
+                 get 'autocomplete_tipoUso_tipo_uso', :on => :collection
+            end
+          end
           # Configuracion
           get 'configuracion/:id/edit' => 'configuraciones/configuraciones#edit', as: 'edit_configuracion'
           put '/configuracion/:id' => 'configuraciones/configuraciones#update', as: 'update_configuracion'
-  
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

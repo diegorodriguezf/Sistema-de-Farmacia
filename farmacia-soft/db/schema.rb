@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180825171301) do
+ActiveRecord::Schema.define(version: 20180824023948) do
 
   create_table "clientes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "nombre", limit: 25, null: false
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20180825171301) do
     t.string "nombre", limit: 35, null: false
     t.string "descripcion", limit: 60
     t.date "fecha_vencimiento", null: false
+    t.integer "tipo_uso_ids"
     t.integer "present_med_id", null: false
     t.integer "cant_comprimido", null: false
     t.integer "cant_st_min", null: false
@@ -89,14 +90,7 @@ ActiveRecord::Schema.define(version: 20180825171301) do
   end
 
   create_table "tipo_usos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.string "tipo_uso", limit: 25, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "tipo_usos_medicamentos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.integer "medicamento_id", null: false
-    t.integer "tipo_medicamento_uso_id", null: false
+    t.string "tipo_uso", limit: 35, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

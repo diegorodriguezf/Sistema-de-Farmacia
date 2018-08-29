@@ -44,8 +44,9 @@ gem 'rack-attack'
 gem 'rails_exception_handler'
 gem 'html5_validators'
 gem 'date_validator'
-gem 'carrierwave' 
-gem 'rails-jquery-autocomplete' 
+gem 'carrierwave'
+gem 'jquery-ui-rails'
+gem 'rails-jquery-autocomplete'
 gem 'angularjs-rails'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

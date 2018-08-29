@@ -2,9 +2,9 @@
         <div class="navbar-fixed">
             <nav class="navbar-color">
                 <div class="nav-wrapper">
-                    <ul class="left">                      
+                    <ul class="left">
                       <li><h1 class="logo-wrapper"><a href="dashboard" class="brand-logo darken-1"> <%= image_tag(Configuracion.first().logo_path, alt: "materialize logo") %></a> <span class="logo-text">Farmacia</span></h1> </li>
-                      
+
                     </ul>
                     <div class="header-search-wrapper hide-on-med-and-down">
                         <i class="mdi-action-search"></i>
@@ -15,7 +15,7 @@
 
             <!-- HORIZONTL NAV START-->
              <nav id="horizontal-nav" class="white hide-on-med-and-down">
-                <div class="nav-wrapper">                  
+                <div class="nav-wrapper">
                   <ul id="ul-horizontal-nav" class="left hide-on-med-and-down">
                    <li> <%= link_to '<i class="mdi-action-dashboard"></i> <span> Escritorio </span>'.html_safe, dashboard_path, class: "cyan-text" %>
                     </li>
@@ -24,7 +24,7 @@
                             <i class="mdi-communication-email"></i>
                             <span>Mailbox</span>
                         </a>
-                    </li>                    
+                    </li>
                     <li>
                         <a class="dropdown-menu cyan-text" href="#!" data-activates="CSSdropdown">
                             <i class="mdi-action-invert-colors"></i>
@@ -56,9 +56,9 @@
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-menu cyan-text" href="#!" data-activates="Pagesdropdown">
-                            <i class="mdi-social-pages"></i>
-                            <span>Pages<i class="mdi-navigation-arrow-drop-down right"></i></span>
+                        <a class="dropdown-menu cyan-text" href="#!" data-activates="Medicamentodropdown">
+                            <i class="mdi-av-queue"></i>
+                            <span>Medicamento<i class="mdi-navigation-arrow-drop-down right"></i></span>
                         </a>
                     </li>
                     <li>
@@ -66,7 +66,7 @@
                             <i class="mdi-action-shopping-cart"></i>
                             <span>Ventas<i class="mdi-navigation-arrow-drop-down right"></i></span>
                         </a>
-                    </li>                    
+                    </li>
                     <li>
                         <a class="dropdown-menu cyan-text" href="#!" data-activates="Usersdropdown">
                             <i class="mdi-action-account-circle"></i>
@@ -74,12 +74,12 @@
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-menu cyan-text" href="#!" data-activates="Chartsdropdown">
-                            <i class="mdi-editor-insert-chart"></i>
-                            <span>Charts<i class="mdi-navigation-arrow-drop-down right"></i></span>
+                        <a class="dropdown-menu cyan-text" href="#!" data-activates="Settingsdropdown">
+                            <i class="mdi-action-settings"></i>
+                            <span>Ajustes<i class="mdi-navigation-arrow-drop-down right"></i></span>
                         </a>
                     </li>
-                    
+
                   </ul>
                 </div>
               </nav>
@@ -87,18 +87,18 @@
                 <!-- CSSdropdown -->
                 <ul id="CSSdropdown" class="dropdown-content dropdown-horizontal-list">
                   <li><a href="css-typography.html" class="cyan-text">Typography</a></li>
-                  <li><a href="css-icons.html" class="cyan-text">Icons</a></li>                  
+                  <li><a href="css-icons.html" class="cyan-text">Icons</a></li>
                   <li><a href="css-shadow.html" class="cyan-text">Shadow</a></li>
-                  <li><a href="css-media.html" class="cyan-text">Media</a></li>                  
+                  <li><a href="css-media.html" class="cyan-text">Media</a></li>
                   <li><a href="css-sass.html" class="cyan-text">Sass</a></li>
                 </ul>
 
                 <!-- UIElementsdropdown-->
                 <ul id="UIElementsdropdown" class="dropdown-content dropdown-horizontal-list">
                   <li><a href="ui-buttons.html" class="cyan-text">Buttons</a></li>
-                  <li><a href="ui-badges.html" class="cyan-text">Badges</a></li>                  
+                  <li><a href="ui-badges.html" class="cyan-text">Badges</a></li>
                   <li><a href="ui-cards.html" class="cyan-text">Cards</a></li>
-                  <li><a href="ui-collections.html" class="cyan-text">Collections</a></li>                  
+                  <li><a href="ui-collections.html" class="cyan-text">Collections</a></li>
                   <li><a href="ui-accordions.html" class="cyan-text">Accordian</a></li>
                   <li><a href="ui-navbar.html" class="cyan-text">Navbar</a></li>
                   <li><a href="ui-pagination.html" class="cyan-text">Pagination</a></li>
@@ -121,25 +121,22 @@
                   <li><a href="form-layouts.html" class="cyan-text">Form Layouts</a></li>
                 </ul>
 
-                <!-- Pagesdropdown -->
-                <ul id="Pagesdropdown" class="dropdown-content dropdown-horizontal-list">
-                    
-                    <li><a href="page-invoice.html" class="cyan-text">Invoice</a></li>
-                    <li><a href="page-404.html" class="cyan-text">404</a></li>
-                    <li><a href="page-500.html" class="cyan-text">500</a></li>
-                    <li><a href="page-blank.html" class="cyan-text">Blank</a></li>
+                <!-- Medicamentodropdown -->
+                <ul id="Medicamentodropdown" class="dropdown-content dropdown-horizontal-list">
+                    <li> <%= link_to 'Agregar Medicamento', medicamento_new_path, class: "cyan-text" %></li>
+                      <li> <%= link_to 'Lista de Medicamentos', medicamento_index_path, class: "cyan-text" %></li>
                 </ul>
 
                 <!-- eCommers -->
                 <ul id="Ventasdropdown" class="dropdown-content dropdown-horizontal-list">
-                    <li> <%= link_to 'Agregar Cliente', cliente_new_path, class: "cyan-text" %></li> 
+                    <li> <%= link_to 'Agregar Cliente', cliente_new_path, class: "cyan-text" %></li>
                     <li> <%= link_to 'Lista de Cliente', cliente_index_path, class: "cyan-text" %></li>
-                    <li> <%= link_to 'Agregar Timbrado', timbrado_new_path, class: "cyan-text" %></li> 
+                    <li> <%= link_to 'Agregar Timbrado', timbrado_new_path, class: "cyan-text" %></li>
                     <li> <%= link_to 'Lista de Timbrados', timbrado_index_path, class: "cyan-text" %></li>
                 </ul>
 
                 <!-- Mediasdropdown -->
-                <ul id="Mediasdropdown" class="dropdown-content dropdown-horizontal-list">                    
+                <ul id="Mediasdropdown" class="dropdown-content dropdown-horizontal-list">
                     <li><a href="media-gallary-page.html"  class="cyan-text">Gallary Page</a></li>
                     <li><a href="media-hover-effects.html"  class="cyan-text">Image Hover Effects</a></li>
                 </ul>
@@ -147,24 +144,17 @@
                 <!-- Usersdropdown -->
                 <ul id="Usersdropdown" class="dropdown-content dropdown-horizontal-list">
                     <li><%= link_to 'Mi Perfil',edit_user_path(current_user) %> </li>
-                    <li> <%= link_to 'Registrar Usuario', sign_up_path, class: "cyan-text" %></li> 
-                    <li> <%= link_to 'Lista de Usuarios', index_path, class: "cyan-text" %></li>       
+                    <li> <%= link_to 'Registrar Usuario', sign_up_path, class: "cyan-text" %></li>
+                    <li> <%= link_to 'Lista de Usuarios', index_path, class: "cyan-text" %></li>
                     <li> <%= link_to 'Cerrar Sesión',sign_out_path, method: "delete",class: "cyan-text" %></li>
                 </ul>
 
-                <!-- Chartsdropdown -->
-                <ul id="Chartsdropdown" class="dropdown-content dropdown-horizontal-list">
-                    <li><a href="charts-chartjs.html" class="cyan-text">Chart JS</a></li>
-                    <li><a href="charts-chartist.html" class="cyan-text">Chartist</a></li>
-                    <li><a href="charts-morris.html" class="cyan-text">Morris Charts</a></li>
-                    <li><a href="charts-xcharts.html" class="cyan-text">xCharts</a></li>
-                    <li><a href="charts-flotcharts.html" class="cyan-text">Flot Charts</a></li>
-                    <li><a href="charts-sparklines.html" class="cyan-text">Sparkline Charts</a></li>
+                <!-- Settingsdropdown -->
+                <ul id="Settingsdropdown" class="dropdown-content dropdown-horizontal-list">
+                    <li><%= link_to 'Datos de la Empresa',edit_configuracion_path(Configuracion.first()) %> </li>
                 </ul>
             <!-- HORIZONTL NAV END-->
-            
-            
+
+
 
         </div>
-
- 
