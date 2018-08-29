@@ -14,7 +14,7 @@
         <%= f.label 'Fecha Venc.' %>
      </div>
      <div class="input-field col s4 offset-s2">
-        <%= f.autocomplete_field :tipo_uso_ids,autocomplete_tipoUso_tipo_uso_medicamentos_medicamentos_path,'data-delimiter' => ',', :multiple => true  %>
+        <%= f.autocomplete_field :tipo_uso_ids,autocomplete_tipoUso_tipo_uso_medicamentos_medicamentos_path,class: 'autocomplete','data-delimiter' => ',', :multiple => true  %>
         <%= f.label 'Tipo de Uso' %>
      </div>
  </div>
