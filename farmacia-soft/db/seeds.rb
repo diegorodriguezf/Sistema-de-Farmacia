@@ -75,3 +75,22 @@ if @tipo_uso.blank?
        TipoUso.new(tip_uso).save
      end
 end
+# medicamento  seeder create
+@medicamento=Medicamento.first()
+if @medicamento.blank?
+	medicamento = Medicamento.new(
+      nombre: 'Cefalgyn',
+	    descripcion: '',
+		  fecha_vencimiento: '08-03-2020',
+	    tipo_uso_ids: [1,2],
+	    present_med_id: 2,
+	    cant_comprimido: 4,
+      cant_st_min: 15,
+			cant_st_max: 40,
+			precio_compra: 3700,
+			precio_venta: 4500,
+			modo_aplicacion: 'Via Oral',
+			especificacion: 'Dolores de Cabeza',
+			activo: 1)
+      medicamento.save!
+end

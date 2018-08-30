@@ -14,10 +14,11 @@
                        <th>Cant Max</th>
                        <th>P. Compra</th>
                        <th>P. Venta</th>
+                       <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
-                   <% @medicamentos.each do |medicamento| %> 
+                   <% @medicamentos.each do |medicamento| %>
                       <tr>
                         <td><%= medicamento.nombre %></td>
                         <td><%= medicamento.descripcion %></td>
@@ -28,13 +29,12 @@
                         <td><%= medicamento.cant_st_max %></td>
                         <td><%= medicamento.precio_compra %></td>
                         <td><%= medicamento.precio_venta %></td>
-                        <td><i class="mdi-content-create prefix" title="editar"></i><%= link_to "Editar", edit_medicamento_path(medicamento) %> &nbsp &nbsp &nbsp   
+                        <td><i class="mdi-content-create prefix" title="editar"></i><%= link_to "Editar", edit_medicamento_path(medicamento) %> &nbsp &nbsp &nbsp
                             <i class="mdi-action-delete prefix" title="borrar"></i><%= link_to "Eliminar", destroy_medicamento_path(medicamento), :method => :delete, data: { confirm:"Desea Eliminar el Medicamento "+medicamento.nombre}  %></td>
                       </tr>
-                   <% end %>   
-                </tbody> 
-            </table>    
+                   <% end %>
+                </tbody>
+            </table>
         </div>
-      </div>         
-  </div>  
- 
+      </div>
+  </div>

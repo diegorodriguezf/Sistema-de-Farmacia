@@ -13,8 +13,8 @@
         <%= f.date_field :fecha_vencimiento,autofocus: true, maxlength: '10',class: 'validate' %>
         <%= f.label 'Fecha Venc.' %>
      </div>
-     <div class="input-field col s4 offset-s2">
-        <%= f.autocomplete_field :tipo_uso_ids,autocomplete_tipoUso_tipo_uso_medicamentos_medicamentos_path,'data-delimiter' => ',', :multiple => true  %>
+     <div class="input-field col s6 offset-s2">
+        <%= f.collection_select(:tipo_uso_ids, TipoUso.all, :id, :tipo_uso, {}, { :include_blank =>'-- Seleccione -- ',class: "validate",multiple: true} )%>
         <%= f.label 'Tipo de Uso' %>
      </div>
  </div>
