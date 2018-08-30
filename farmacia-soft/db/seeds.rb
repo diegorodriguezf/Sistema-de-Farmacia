@@ -92,5 +92,7 @@ if @medicamento.blank?
 			modo_aplicacion: 'Via Oral',
 			especificacion: 'Dolores de Cabeza',
 			activo: 1)
+
       medicamento.save!
+
 end
