@@ -18,7 +18,10 @@ class Medicamentos::MedicamentosController < ApplicationController
 
   def edit
      @medicamento = Medicamento.find(params[:id])
-      render 'medicamentos/edit'
+		 respond_to do |format|
+			 format.html { render 'medicamentos/edit'}
+			 format.js { render 'medicamentos/edit', content_type: 'text/javascript'}
+		end
   end
 
    def update

@@ -95,6 +95,13 @@ ActiveRecord::Schema.define(version: 20180824023948) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "tipo_usos_medicamentos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.integer "medicamento_id", null: false
+    t.integer "tipo_medicamento_uso_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "first_name", limit: 25, null: false
     t.string "last_name", limit: 25, null: false
