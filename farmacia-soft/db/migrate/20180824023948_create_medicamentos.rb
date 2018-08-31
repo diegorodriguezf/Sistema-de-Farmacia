@@ -4,7 +4,7 @@ class CreateMedicamentos < ActiveRecord::Migration[5.1]
       t.string :nombre, limit: 35, :null => false
       t.string :descripcion,:null => true,  :limit => 60
       t.date :fecha_vencimiento,:null=>false
-      t.integer :tipo_uso_ids, array: true, default: []
+      t.string :tipo_uso_ids, :null=>false,:limit=>30
       t.integer :present_med_id,:null => false
       t.integer :cant_comprimido,:null=> false
       t.integer :cant_st_min,:null=>false

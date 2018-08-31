@@ -69,6 +69,6 @@ class Medicamentos::MedicamentosController < ApplicationController
   end
 
   def medicamento_params
-        params.require(:medicamento).permit(:nombre, :descripcion,:fecha_vencimiento,:tipo_uso_ids,:present_med_id,:cant_comprimido,:cant_st_min,:cant_st_max,:precio_compra,:precio_venta,:modo_aplicacion,:especificacion,:activo)
+        params.require(:medicamento).permit(:nombre, :descripcion,:fecha_vencimiento,{tipo_uso_ids:[]},:present_med_id,:cant_comprimido,:cant_st_min,:cant_st_max,:precio_compra,:precio_venta,:modo_aplicacion,:especificacion,:activo)
   end
 end
