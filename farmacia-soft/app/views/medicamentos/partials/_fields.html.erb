@@ -17,6 +17,7 @@
         <%= f.collection_select(:tipo_uso_ids, TipoUso.all, :id, :tipo_uso, {}, { :include_blank =>'-- Seleccione -- ',class: "validate",multiple: true} )%>
           <%= f.label 'Tipo Uso' %>
      </div>
+</div>
   <div class="row">
     <div class="input-field col s4">
       <%= f.collection_select(:present_med_id, PresentacionMedicamento.all, :id, :descripcion, {}, {class: "validate"} )%>

@@ -10,10 +10,15 @@ NOTE:
 PLACE HERE YOUR OWN JS CODES AND IF NEEDED.
 WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR CUSTOM SCRIPT IT'S BETTER LIKE THIS. */
 
- $(document).ready(function(){
+$( document ).on('turbolinks:load', function() {
     $('.tooltipped').tooltip({delay: 50});
-  });
+    var values = ['1', '5'];
+var selectEl = $('select');
+selectEl.material_select();
+selectEl.val(values);
+selectEl.material_select('refresh');
 
+  });
 
 
 
