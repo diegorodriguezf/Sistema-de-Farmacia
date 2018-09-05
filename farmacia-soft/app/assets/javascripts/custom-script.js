@@ -12,12 +12,17 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR CUSTOM SCRIPT I
 
 $( document ).on('turbolinks:load', function() {
     $('.tooltipped').tooltip({delay: 50});
-    var values = ['1', '5'];
-var selectEl = $('select');
-selectEl.material_select();
-selectEl.val(values);
-selectEl.material_select('refresh');
-
+    var multiple = $('#tipoUso').materialize_autocomplete({
+           multiple: {
+               enable: true
+           },
+           appender: {
+               el: '.ac-users'
+           },
+           dropdown: {
+               el: '#multipleDropdown'
+           }
+       });
   });
 
 

@@ -38,11 +38,11 @@ Rails.application.routes.draw do
           get 'medicamento/:id/show' => 'medicamentos/medicamentos#show', as: 'medicamento_show'
           delete '/medicamento/:id' => 'medicamentos/medicamentos#destroy', as: 'destroy_medicamento'
           get 'medicamentos/index' => 'medicamentos/medicamentos#index', as: 'medicamento_index'
-          #namespace :medicamentos do
-            #resources :medicamentos do
-                # get 'autocomplete_tipoUso_tipo_uso', :on => :collection
-            #end
-          #end
+          namespace :medicamentos do
+            resources :medicamentos do
+                 get 'autocomplete_tipoUso_tipo_uso', :on => :collection
+            end
+          end
           # Configuracion
           get 'configuracion/:id/edit' => 'configuraciones/configuraciones#edit', as: 'edit_configuracion'
           put '/configuracion/:id' => 'configuraciones/configuraciones#update', as: 'update_configuracion'

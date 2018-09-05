@@ -1,7 +1,7 @@
 
 class Medicamentos::MedicamentosController < ApplicationController
 	 before_action :require_login
-   #autocomplete :tipoUso, :tipo_uso,:extra_data => [:id,:tipo_uso],:display_value => :tipo_uso
+   autocomplete :tipoUso, :tipo_uso,:extra_data => [:id,:tipo_uso],:display_value => :tipo_uso
    def new
      @medicamento=Medicamento.new
      render 'medicamentos/new'

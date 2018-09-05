@@ -14,8 +14,8 @@
         <%= f.label 'Fecha Venc.' %>
      </div>
      <div class="input-field col s6 offset-s2">
-        <%= f.collection_select(:tipo_uso_ids, TipoUso.all, :id, :tipo_uso, {}, { :include_blank =>'-- Seleccione -- ',class: "validate",multiple: true} )%>
-          <%= f.label 'Tipo Uso' %>
+       <%= f.autocomplete_field :tipo_uso_ids,autocomplete_tipoUso_tipo_uso_medicamentos_medicamentos_path,id: 'tipoUso','data-delimiter' => ',', :multiple => true%>
+       <%= f.label 'Tipo Uso' %>
      </div>
 </div>
   <div class="row">
