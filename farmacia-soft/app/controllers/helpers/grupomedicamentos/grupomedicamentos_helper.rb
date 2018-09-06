@@ -1,0 +1,2 @@
+module Grupomedicamentos::GrupomedicamentosHelper
+end
