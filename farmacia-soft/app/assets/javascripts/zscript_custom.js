@@ -16,35 +16,34 @@ $( document ).on('turbolinks:load', function() {
     var tipoUso = new Bloodhound({
         datumTokenizer : Bloodhound.tokenizers.obj.whitespace('text'),
         queryTokenizer : Bloodhound.tokenizers.whitespace,
-        prefetch       : '../assets/cities.json'
+        remote: {
+                url: '../grupo_medicamento/index/?term=',
+                wildcard: '%QUERY',
+                prepare: function (query, settings) {
+                  settings.type = "GET";
+                  settings.contentType = "application/json; charset=UTF-8";
+                  settings.data = JSON.stringify(query);
+                   return settings;
+                }
+               }
     });
-  /*  tipoUso.initialize();
+    tipoUso.initialize();
     elt = $('#tipoUso');
     elt.materialtags({
-        itemValue   : 'value',
-        itemText    : 'text',
+        itemValue   : 'id',
+        itemText    : 'tipo_uso',
         typeaheadjs : {
             name       : 'tipoUso',
-            displayKey : 'text',
-            source: function(query, process) {
-                return $.ajax({
-                    url: $(this)[0].$element[0].dataset.link,
-                    type: 'get',
-                    data: {query: query},
-                    dataType: 'json',
-                    success: function(json) {
-                        return typeof json.options == 'undefined' ? false : process(json.options);
-                    }
-                });
-          }
-        }*/
+            displayKey : 'tipo_uso',
+            source: tipoUso.ttAdapter()
+        }
     });
 
-  /*  elt.materialtags('add', {"value" : 1, "text" : "Amsterdam", "continent" : "Europe"});
-    elt.materialtags('add', {"value" : 4, "text" : "Washington", "continent" : "America"});
+    elt.materialtags('add', {"id" : 5, "tipo_uso" : "Analgesico"});
+    /*elt.materialtags('add', {"value" : 4, "text" : "Washington", "continent" : "America"});
     elt.materialtags('add', {"value" : 7, "text" : "Sydney", "continent" : "Australia"});
     elt.materialtags('add', {"value" : 10, "text" : "Beijing", "continent" : "Asia"});
-    elt.materialtags('add', {"value" : 13, "text" : "Cairo", "continent" : "Africa"});
+    elt.materialtags('add', {"value" : 13, "text" : "Cairo", "continent" : "Africa"});*/
 
     elt.on('change', function (event) {
        var $element   = $(event.target);
@@ -57,7 +56,7 @@ $( document ).on('turbolinks:load', function() {
            val = "null";
        }
        $('#tipo_uso_ids').val(($.isArray(val) ? JSON.stringify(val) : val.replace('"', '\\"') ))
-    }).trigger('change');*/
+    }).trigger('change');
   });
 
 

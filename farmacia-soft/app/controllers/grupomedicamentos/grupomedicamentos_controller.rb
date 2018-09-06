@@ -3,7 +3,7 @@ class Grupomedicamentos::GrupomedicamentosController < ApplicationController
 
  def new
    @grupoMedicamento=TipoUso.new
-   render 'grupoMedicamentos/new'
+   render 'grupomedicamentos/new'
  end
  def create
      @grupoMedicamento = TipoUso.new(grupoMedicamento_params)
@@ -11,13 +11,13 @@ class Grupomedicamentos::GrupomedicamentosController < ApplicationController
           flash[:notice] = 'Se ha guardado correctamente el registro'
           redirect_to grupoMedicamento_new_path
       else
-          render 'grupoMedicamentos/new'
+          render 'grupomedicamentos/new'
       end
  end
 
 def edit
    @grupoMedicamento = TipoUso.find(params[:id])
-    render 'grupoMedicamentos/edit'
+    render 'grupomedicamentos/edit'
 end
 
  def update
@@ -28,7 +28,7 @@ end
               format.html { redirect_to edit_grupoMedicamento_path(@grupoMedicamento)}
               format.json { head :no_content }
          else
-          format.html { render 'grupoMedicamentos/edit'}
+          format.html { render 'grupomedicamentos/edit'}
           format.json { render json: @grupoMedicamento.errors, status: :unprocessable_entity }
         end
       end
@@ -37,7 +37,7 @@ end
 def index
   @grupoMedicamentos =TipoUso.all
   respond_to do |format|
-    format.html {render 'grupoMedicamentos/index'}
+    format.html {render 'grupomedicamentos/index'}
     format.json { render json: @grupoMedicamentos }
   end
 end

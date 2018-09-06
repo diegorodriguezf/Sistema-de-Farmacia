@@ -34,7 +34,7 @@ Rails.application.routes.draw do
           #tipo uso
           get '/grupo_medicamento/new' => 'timbrados/timbrados#new', as: 'grupoMedicamento_new'
           post '/grupo_medicamento' => 'grupomedicamentos/grupomedicamentos#create', as: 'grupoMedicamento_create'
-          get 'grupo_medicamento/:id/edit' => 'grupomedicamentos/grupomedicamentos#edit', as: 'grupoMedicamento_timbrado'
+          get 'grupo_medicamento/:id/edit' => 'grupomedicamentos/grupomedicamentos#edit', as: 'edit_grupoMedicamento'
           put '/grupo_medicamento/:id' => 'grupomedicamentos/grupomedicamentos#update', as: 'update_grupoMedicamento'
           get 'grupo_medicamento/:id/show' => 'grupomedicamentos/grupomedicamentos#show', as: 'timbrado_grupoMedicamento'
           delete '/grupo_medicamento/:id' => 'grupomedicamentos/grupomedicamentos#destroy', as: 'destroy_grupoMedicamento'
