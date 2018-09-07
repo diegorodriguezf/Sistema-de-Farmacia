@@ -14,9 +14,9 @@ $( document ).on('turbolinks:load', function() {
     $('.tooltipped').tooltip({delay: 50});
     /* multiple automplete tipo de uso */
     var tipoUso = new Bloodhound({
-        datumTokenizer : Bloodhound.tokenizers.obj.whitespace("text"),
+        datumTokenizer : Bloodhound.tokenizers.obj.whitespace("id","tipo_uso"),
         queryTokenizer : Bloodhound.tokenizers.whitespace,
-        prefetch: '../grupo_medicamento/index/'
+        prefetch: '../../grupo_medicamento/index/'
     });
     tipoUso.initialize();
     elt = $('#tipoUso');
@@ -30,8 +30,8 @@ $( document ).on('turbolinks:load', function() {
         }
     });
     if ($('#medicamento_id').val()!=''){
-     /*elt.materialtags('add', {"id" : 5, "tipo_uso" : "Analgesico"});
-     elt.materialtags('add', {"id" : 6, "tipo_uso" : "Antinflamatorio"});*/
+     elt.materialtags('add', {"id" : 5, "tipo_uso" : "Analgesico"});
+     elt.materialtags('add', {"id" : 6, "tipo_uso" : "Antinflamatorio"});
     }
 
     /*elt.materialtags('add', {"value" : 4, "text" : "Washington", "continent" : "America"});
@@ -50,7 +50,7 @@ $( document ).on('turbolinks:load', function() {
            val = "null";
        }
 
-       //$('#tipo_uso_ids').val(($.isArray(val) ? JSON.stringify(val) : val.replace('"', '\\"') ))
+       $('#tipo_uso_ids').val(($.isArray(val) ? JSON.stringify(val) : val.replace('"', '\\"') ))
 
     }).trigger('change');
   });

@@ -16,10 +16,7 @@
      </div>
      <div class="input-field col s6 offset-s2">
         <%= text_field_tag :tipoUso,params[:tipoUso], id: 'tipoUso', class: 'object-tag-input validate' %>
-        
-        <input type="hidden" class="mail-contacts" name="medicamento[tipo_uso_ids][]" value="5">
-        <input type="hidden" class="mail-contacts" name="medicamento[tipo_uso_ids][]" value="6">
-        <input type="hidden" class="mail-contacts" name="medicamento[tipo_uso_ids][]" value="7">
+        <%= f.hidden_field :tipo_uso_ids,id: 'tipo_uso_ids' %>
         <%= f.label 'Tipo Uso' %>
      </div>
 </div>

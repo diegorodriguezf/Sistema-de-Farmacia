@@ -9,6 +9,7 @@
                        <th>Descripción</th>
                        <th>Fec Venc</th>
                        <th>Presentacion</th>
+                       <th>Grupo</th>
                        <th>Cant Comp</th>
                        <th>Cant Min</th>
                        <th>Cant Max</th>
@@ -24,6 +25,11 @@
                         <td><%= medicamento.descripcion %></td>
                         <td><%= medicamento.fecha_vencimiento.to_s %></td>
                         <td><%= medicamento.presentacion_medicamento.descripcion %></td>
+                        <td> <% @grupos=TipoUso.find(medicamento.tipo_uso_ids)
+                                @grupos.each do |grupo| %>
+                                    <%= grupo.tipo_uso %>,
+                                <% end %>
+                        </td>
                         <td><%= medicamento.cant_comprimido %></td>
                         <td><%= medicamento.cant_st_min %></td>
                         <td><%= medicamento.cant_st_max %></td>

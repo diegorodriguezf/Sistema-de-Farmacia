@@ -26,6 +26,7 @@ class Medicamentos::MedicamentosController < ApplicationController
 
    def update
       @medicamento= Medicamento.find(params[:id])
+			@medicamento.tipo_uso_ids=params[:medicamento][:tipo_uso_ids].split(',')
         respond_to do |format|
           if @medicamento.update_attributes(medicamento_params)
                 flash[:notice] = 'Se ha actualizado correctamente el registro'
