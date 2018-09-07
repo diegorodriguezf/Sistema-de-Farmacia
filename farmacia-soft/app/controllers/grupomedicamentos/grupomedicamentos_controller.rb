@@ -33,7 +33,6 @@ end
         end
       end
 end
-
 def index
   @grupoMedicamentos =TipoUso.all
   respond_to do |format|
@@ -58,6 +57,6 @@ def destroy
 end
 
 def grupoMedicamento_params
-      params.require(:grupoMedicamento).permit(:tipo_uso)
+      params.require(:tipo_uso).permit(:tipo_uso)
 end
 end
