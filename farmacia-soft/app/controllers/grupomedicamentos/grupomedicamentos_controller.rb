@@ -33,6 +33,12 @@ end
         end
       end
 end
+def findById
+   @grupoMedicamentos = TipoUso.find(params[:tipo_uso_ids].split(' '))
+   respond_to do |format|
+     format.json { render json: @grupoMedicamentos }
+   end
+end
 def index
   @grupoMedicamentos =TipoUso.all
   respond_to do |format|

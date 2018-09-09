@@ -16,7 +16,7 @@ $( document ).on('turbolinks:load', function() {
     var tipoUso = new Bloodhound({
         datumTokenizer : Bloodhound.tokenizers.obj.whitespace("id","tipo_uso"),
         queryTokenizer : Bloodhound.tokenizers.whitespace,
-        prefetch: '../../grupo_medicamento/index/'
+        remote: '../../grupo_medicamento/index/'
     });
     tipoUso.initialize();
     elt = $('#tipoUso');
@@ -30,15 +30,12 @@ $( document ).on('turbolinks:load', function() {
         }
     });
     if ($('#medicamento_id').val()!=''){
-     elt.materialtags('add', {"id" : 5, "tipo_uso" : "Analgesico"});
-     elt.materialtags('add', {"id" : 6, "tipo_uso" : "Antinflamatorio"});
+      $.getJSON("../../grupo_medicamento/find_by_id",{ tipo_uso_ids: $('#tipo_uso_ids').val()}, function(resuslt){
+        $.each(resuslt, function(i, element){
+            elt.materialtags('add', {"id" : element.id , "tipo_uso" : element.tipo_uso });
+        });
+      });
     }
-
-    /*elt.materialtags('add', {"value" : 4, "text" : "Washington", "continent" : "America"});
-    elt.materialtags('add', {"value" : 7, "text" : "Sydney", "continent" : "Australia"});
-    elt.materialtags('add', {"value" : 10, "text" : "Beijing", "continent" : "Asia"});
-    elt.materialtags('add', {"value" : 13, "text" : "Cairo", "continent" : "Africa"});*/
-
     elt.on('change', function (event) {
        var $element   = $(event.target);
        if (!$element.data('materialtags')) {
@@ -49,7 +46,6 @@ $( document ).on('turbolinks:load', function() {
        {
            val = "null";
        }
-
        $('#tipo_uso_ids').val(($.isArray(val) ? JSON.stringify(val) : val.replace('"', '\\"') ))
 
     }).trigger('change');
@@ -58,7 +54,7 @@ $( document ).on('turbolinks:load', function() {
 
 /* angular js */
 
-var app = angular.module('pharmacyApp', []);
+//var app = angular.module('pharmacyApp', []);
 /*app.controller('timbradoCtrl', function($scope){
 	$scope.hello='Hola';
 	 $scope.change = function() {

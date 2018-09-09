@@ -32,11 +32,12 @@ Rails.application.routes.draw do
           get 'timbrados/index' => 'timbrados/timbrados#index', as: 'timbrado_index'
 
           #tipo uso
-          get '/grupo_medicamento/new' => 'timbrados/timbrados#new', as: 'grupoMedicamento_new'
+          get '/grupo_medicamento/new' => 'grupomedicamentos/grupomedicamentos#new', as: 'grupoMedicamento_new'
           post '/grupo_medicamento' => 'grupomedicamentos/grupomedicamentos#create', as: 'grupoMedicamento_create'
           get 'grupo_medicamento/:id/edit' => 'grupomedicamentos/grupomedicamentos#edit', as: 'edit_grupoMedicamento'
           put '/grupo_medicamento/:id' => 'grupomedicamentos/grupomedicamentos#update', as: 'update_grupoMedicamento'
           get 'grupo_medicamento/:id/show' => 'grupomedicamentos/grupomedicamentos#show', as: 'timbrado_grupoMedicamento'
+          get 'grupo_medicamento/find_by_id' => 'grupomedicamentos/grupomedicamentos#findById', as: 'findById_grupoMedicamento'
           delete '/grupo_medicamento/:id' => 'grupomedicamentos/grupomedicamentos#destroy', as: 'destroy_grupoMedicamento'
           get 'grupo_medicamento/index' => 'grupomedicamentos/grupomedicamentos#index', as: 'grupoMedicamento_index'
           # medicamento

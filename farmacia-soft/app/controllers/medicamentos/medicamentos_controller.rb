@@ -8,6 +8,7 @@ class Medicamentos::MedicamentosController < ApplicationController
    end
    def create
        @medicamento = Medicamento.new(medicamento_params)
+			 @medicamento.tipo_uso_ids=params[:medicamento][:tipo_uso_ids].split(',')
         if @medicamento.save
             flash[:notice] = 'Se ha guardado correctamente el registro'
             redirect_to medicamento_new_path
