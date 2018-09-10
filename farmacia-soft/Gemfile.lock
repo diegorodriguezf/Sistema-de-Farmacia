@@ -65,7 +65,7 @@ GEM
       jquery-rails (~> 4.3)
       js_regex (~> 3.0)
       rails (>= 5.0.0.1, <= 6.0)
-    client_side_validations-simple_form (6.6.0)
+    client_side_validations-simple_form (6.7.0)
       client_side_validations (>= 9.3.2, < 12)
       simple_form (>= 3.5, < 5)
     coffee-rails (4.2.2)

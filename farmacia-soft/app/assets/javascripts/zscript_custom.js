@@ -42,12 +42,10 @@ $( document ).on('turbolinks:load', function() {
            return;
        }
        var val = $element.val();
-       if (val === null)
-       {
+       if (val === null){
            val = "null";
        }
        $('#tipo_uso_ids').val(($.isArray(val) ? JSON.stringify(val) : val.replace('"', '\\"') ))
-
     }).trigger('change');
   });
 
@@ -62,7 +60,6 @@ $( document ).on('turbolinks:load', function() {
 	    $scope.sayHello = 'Hello';
 	  }
 });*/
-
  function timbradoChange(item){
     $('#timbrado_show').attr('href','/timbrado/'+item.value+'/show');
 }
