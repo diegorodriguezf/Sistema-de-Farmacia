@@ -22,4 +22,7 @@
    inflect.irregular 'medicamento', 'medicamentos'
    inflect.irregular 'tipo_uso_medicamento', 'tipo_usos_medicamentos'
    inflect.irregular 'factura_venta','factura_ventas'
+   inflect.irregular 'detalle_factura_venta','detalle_factura_ventas'
+   inflect.irregular 'detalle_factura_venta_tmp','detalle_factura_ventas_tmp'
+   inflect.irregular 'stock','stocks'
 end
