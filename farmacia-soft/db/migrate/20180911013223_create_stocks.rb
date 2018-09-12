@@ -9,4 +9,5 @@ class CreateStocks < ActiveRecord::Migration[5.1]
   def self.down
        drop_table :stocks
   end
+  add_index :stocks,:medicamento_id, unique: true
 end

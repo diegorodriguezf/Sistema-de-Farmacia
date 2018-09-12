@@ -10,9 +10,9 @@ class Timbrados < ActiveRecord::Migration[5.1]
       t.boolean :estado,default: false
       t.timestamps
     end
-    add_index :timbrados, :timbrado, unique: true
   end
   def self.down
        drop_table :timbrados
   end
+  add_index :timbrados, :timbrado, unique: true
 end
