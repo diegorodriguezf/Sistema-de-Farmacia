@@ -1,0 +1,44 @@
+  <div id="table-datatables">
+     <h4 class="header">Lista de Empleados</h4>
+       <div class="row">
+          <div class="col s12 m8 l12">
+            <table id="data-table-simple" class="responsive-table display" cellspacing="0">
+                <thead>
+                    <tr>
+                       <th>Nombre </th>
+                       <th>Apellido</th>
+                       <th>Nro. Documento</th>
+                       <th>Fecha de Ing.</th>
+                       <th>Fecha de Sal.</th>
+                       <th>Fecha de Nac.</th>
+                       <th>Nacionalidad</th>
+                       <th>Dirección</th>
+                       <th>Telefono</th>
+                       <th>Sexo</th>
+                       <th>Estado</th>
+                       <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   <% @empleados.each do |empleado| %>
+                      <tr>
+                        <td><%= empleado.nombre %></td>
+                        <td><%= empleado.apellido %></td>
+                        <td><%= empleado.nro_documento %></td>
+                        <td><%= empleado.fecha_ingreso %></td>
+                        <td><%= empleado.fecha_salida %></td>
+                        <td><%= empleado.fecha_nacimiento %></td>
+                        <td><%= empleado.nacionalidad %></td>
+                        <td><%= empleado.direccion %></td>
+                        <td><%= empleado.telefono %></td>
+                        <td><%= empleado.sexo %></td>
+                        <td><%= empleado.activo %></td>
+                        <td><i class="mdi-content-create prefix" title="editar"></i><%= link_to "Editar", edit_empleado_path(empleado) %> &nbsp &nbsp &nbsp
+                            <i class="mdi-action-delete prefix" title="borrar"></i><%= link_to "Eliminar", destroy_empleado_path(empleado), :method => :delete, data: { confirm:"Desea Eliminar el Empleado "+empleado.nombre+''+empleado.apellido}  %></td>
+                      </tr>
+                   <% end %>
+                </tbody>
+            </table>
+        </div>
+      </div>
+  </div>

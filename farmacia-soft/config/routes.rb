@@ -27,6 +27,14 @@ Rails.application.routes.draw do
           delete '/cliente/:id' => 'clientes/clientes#destroy', as: 'destroy_cliente'
           get 'clientes/index' => 'clientes/clientes#index', as: 'cliente_index'
 
+          # empleados
+          get '/empleado/new' => 'empleados/empleados#new', as: 'empleado_new'
+          post '/empleado' => 'empleados/empleados#create', as: 'empleado_create'
+          get 'empleado/:id/edit' => 'empleados/empleados#edit', as: 'edit_empleado'
+          put '/empleado/:id' => 'empleados/empleados#update', as: 'update_empleado'
+          delete '/empleado/:id' => 'empleados/empleados#destroy', as: 'destroy_empleado'
+          get 'empleados/index' => 'empleados/empleados#index', as: 'empleado_index'
+
           # Timbrado
           get '/timbrado/new' => 'timbrados/timbrados#new', as: 'timbrado_new'
           post '/timbrado' => 'timbrados/timbrados#create', as: 'timbrado_create'

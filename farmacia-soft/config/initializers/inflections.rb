@@ -15,6 +15,7 @@
 #   inflect.acronym 'RESTful'
    inflect.irregular 'user', 'users'
    inflect.irregular 'cliente', 'clientes'
+   inflect.irregular 'empleado', 'empleados'
    inflect.irregular 'timbrado', 'timbrados'
    inflect.irregular 'configuracion', 'configuraciones'
    inflect.irregular 'tipo_uso', 'tipo_usos'
@@ -25,4 +26,5 @@
    inflect.irregular 'detalle_factura_venta','detalle_factura_ventas'
    inflect.irregular 'detalle_factura_venta_tmp','detalle_factura_ventas_tmp'
    inflect.irregular 'stock','stocks'
+   inflect.irregular 'movimiento_stock','movimiento_stocks'
 end

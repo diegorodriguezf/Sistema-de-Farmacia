@@ -1,0 +1,66 @@
+<div class="row">
+    <div class="input-field col s6">
+        <%= f.text_field :nombre, autofocus: true,maxlength:'25',class: 'validate'  %>
+        <%= f.label 'Nombre' %>
+    </div>
+    <div class="input-field col s6">
+        <%= f.text_field :apellido, autofocus: true, maxlength:'25',class: 'validate'  %>
+        <%= f.label 'Apellido' %>
+    </div>
+</div>
+<div class="row">
+    <div class="input-field col s6">
+       <%= f.text_field :nro_documento, autofocus: true, maxlength: '15',class: 'validate'  %>
+       <%= f.label 'Nro. Documento' %>
+    </div>
+    <div class="input-field col s6">
+        <%= f.date_field :fecha_nacimiento,autofocus: true, maxlength: '10',class: 'validate' %>
+        <%= f.label 'Fecha Nacimiento' %>
+    </div>
+ </div>
+ <div class="row">
+    <div class="input-field col s6">
+       <%= f.date_field :fecha_ingreso,autofocus: true, maxlength: '10',class: 'validate' %>
+       <%= f.label 'Fecha Ingreso' %>
+    </div>
+     <div class="input-field col s6">
+         <%= f.date_field :fecha_salida,autofocus: true, maxlength: '10',class: 'validate' %>
+         <%= f.label 'Fecha Salida' %>
+     </div>
+  </div>
+ <div class="row">
+     <div class="input-field col s6">
+       <%=f.text_field :nacionalidad,autofocus: true, maxlength:'50'%>
+       <%= f.label 'Nacionalidad' %>
+     </div>
+     <div class="input-field col s6">
+       <%=f.text_area :direccion,autofocus: true, class: 'materialize-textarea', maxlength:'200'%>
+       <%= f.label 'Dirección' %>
+     </div>
+
+ </div>
+  <div class="row">
+     <div class="input-field col s6">
+       <%=f.text_field :telefono,autofocus: true, maxlength:'20'%>
+       <%= f.label 'Telefono' %>
+     </div>
+     <div class="input-field col s4">
+       <%=f.select(:sexo,[ ['Masculino','M'], ['Femenino','F'] ],class: 'form-control',validate: true)%>
+          <%= f.label 'Sexo' %>
+     </div>
+ </div>
+ <div class="row">
+   <div class="col s4 m8 l4">
+      <%= f.label 'Activo:'%>
+      <%= f.radio_button :activo, true,id:'state_true'%>
+      <%= f.label 'Si',for: 'state_true'%>
+      <%= f.radio_button :activo, false, id: 'state_false'%>
+      <%= f.label 'No',for: 'state_false'%>
+   </div>
+ </div>
+  <div class="row">
+      <div class="input-field col s12">
+         <%= f.submit "Guardar " ,class: 'btn cyan waves-effect waves-light right'  %>
+         <%= f.button :button, 'Cancelar', type: :reset, class: 'btn grey right' %>
+       </div>
+  </div>
