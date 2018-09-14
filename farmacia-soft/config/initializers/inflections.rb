@@ -27,4 +27,5 @@
    inflect.irregular 'detalle_factura_venta_tmp','detalle_factura_ventas_tmp'
    inflect.irregular 'stock','stocks'
    inflect.irregular 'movimiento_stock','movimiento_stocks'
+   inflect.irregular 'detalle_movimiento_stock','detalle_movimiento_stocks'
 end

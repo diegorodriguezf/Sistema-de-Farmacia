@@ -46,6 +46,7 @@ def confirm_factura
    @factura_venta=FacturaVenta.find(params[:id])
    if @factura_venta.update_attributes(:confirmado: true)
       @factura_venta_det=@factura_venta.detalle_factura_ventas
+      @mov_stock=MovimientoStock.create(@factura_venta.funcionario_id,Date.today,'Salida','Venta de Mercaderias segun Factura '+@factura_venta.nro_factura);
       @factura_venta_det.each  do |detalle_factura_venta|
         Stock.discount_stock(detalle_factura_venta.medicamento_id,detalle_factura_venta.cantidad)
      end

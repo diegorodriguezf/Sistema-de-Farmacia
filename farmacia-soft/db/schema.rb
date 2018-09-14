@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180824023948) do
+ActiveRecord::Schema.define(version: 20180914003109) do
 
   create_table "clientes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "nombre", limit: 25, null: false
@@ -37,6 +37,52 @@ ActiveRecord::Schema.define(version: 20180824023948) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "detalle_factura_ventas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.integer "factura_venta_id", null: false
+    t.integer "medicamento_id", null: false
+    t.integer "cantidad", null: false
+    t.decimal "exenta", precision: 7, scale: 2, default: "0.0", null: false
+    t.decimal "iva5", precision: 7, scale: 2, default: "0.0", null: false
+    t.decimal "iva10", precision: 7, scale: 2, default: "0.0", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "detalle_factura_ventas_tmp", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.integer "medicamento_id", null: false
+    t.integer "cantidad", null: false
+    t.decimal "exenta", precision: 7, scale: 2, default: "0.0", null: false
+    t.decimal "iva5", precision: 7, scale: 2, default: "0.0", null: false
+    t.decimal "iva10", precision: 7, scale: 2, default: "0.0", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "detalle_movimiento_stocks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.integer "movimiento_stock_id", null: false
+    t.integer "medicamento_id", null: false
+    t.integer "cantidad", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "empleados", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string "nombre", limit: 25, null: false
+    t.string "apellido", limit: 25, null: false
+    t.date "fecha_ingreso", null: false
+    t.date "fecha_salida"
+    t.string "nro_documento", limit: 15, null: false
+    t.date "fecha_nacimiento", null: false
+    t.string "nacionalidad", limit: 50
+    t.string "direccion", limit: 200
+    t.string "telefono", limit: 20
+    t.string "sexo", limit: 1, null: false
+    t.boolean "activo", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["nro_documento"], name: "index_empleados_on_nro_documento", unique: true
+  end
+
   create_table "error_messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.text "class_name"
     t.text "message"
@@ -48,6 +94,20 @@ ActiveRecord::Schema.define(version: 20180824023948) do
     t.string "user_info"
     t.string "app_name"
     t.string "doc_root"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "factura_ventas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.date "fecha", null: false
+    t.integer "cliente_id", null: false
+    t.string "nro_factura", limit: 15, null: false
+    t.string "tipo_factura", limit: 10, default: "Contado", null: false
+    t.decimal "total_exentas", precision: 10, scale: 2, default: "0.0", null: false
+    t.decimal "total_iva5", precision: 10, scale: 2, default: "0.0", null: false
+    t.decimal "total_iva10", precision: 10, scale: 2, default: "0.0", null: false
+    t.decimal "total", precision: 10, scale: 2, default: "0.0", null: false
+    t.boolean "confirmado", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -70,10 +130,27 @@ ActiveRecord::Schema.define(version: 20180824023948) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "movimiento_stocks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.integer "empleado_id", null: false
+    t.date "fecha", null: false
+    t.string "tipo_movimiento", limit: 10, null: false
+    t.string "descripcion", limit: 100
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "presentacion_medicamentos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "descripcion", limit: 25, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "stocks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.integer "medicamento_id", null: false
+    t.integer "cantidad", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["medicamento_id"], name: "index_stocks_on_medicamento_id", unique: true
   end
 
   create_table "timbrados", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -95,16 +172,8 @@ ActiveRecord::Schema.define(version: 20180824023948) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "tipo_usos_medicamentos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.integer "medicamento_id", null: false
-    t.integer "tipo_medicamento_uso_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.string "first_name", limit: 25, null: false
-    t.string "last_name", limit: 25, null: false
+    t.integer "empleado_id"
     t.string "username", null: false
     t.string "crypted_password"
     t.string "salt"

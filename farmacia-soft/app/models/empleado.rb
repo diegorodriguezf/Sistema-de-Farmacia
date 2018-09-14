@@ -1,4 +1,6 @@
 class Empleado < ApplicationRecord
+has_many :users
+has_many :movimiento_stocks
 has_many :factura_ventas
 # validaciones de clientes
 validates :nombre, presence: true

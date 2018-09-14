@@ -14,9 +14,10 @@ class CreateEmpleados < ActiveRecord::Migration[5.1]
       t.boolean :activo,default: false
       t.timestamps
     end
+      add_index :empleados,:nro_documento, unique: true
   end
   def self.down
      drop_table :empleados
   end
-    add_index :empleados,:nro_documento, unique: true
+
 end

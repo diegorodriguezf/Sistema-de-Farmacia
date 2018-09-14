@@ -7,11 +7,28 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # user seeder create
+# medicamento  seeder create
+@empleado=Empleado.first()
+if @empleado.blank?
+	empleado = Empleado.new(
+      nombre: 'Diego Ramon',
+	    apellido: 'Rodriguez Figueredo',
+		  fecha_ingreso: Date.today,
+	    nro_documento: '4546837',
+	    fecha_nacimiento: '01-09-1989',
+      nacionalidad: 'Paraguaya',
+			direccion: 'Barrio Santa Maria km 3 - Encarnacion',
+			telefono: '(0981) 526028',
+			sexo: 'M',
+			activo: 1)
+      empleado.save!
+
+end
+
 @user=User.first()
 if @user.blank?
 	user = User.new(
-      first_name: 'Diego Ramón',
-	    last_name: 'Rodriguez Figueredo',
+      emplaeado_id: Empleado.first().id,
 	  	username: 'Diego' ,
 	    password: 'riper_010989'
         )
