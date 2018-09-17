@@ -11,9 +11,10 @@ class Clientes < ActiveRecord::Migration[5.1]
   	  t.string :sexo,:limit => 1,:null => false
       t.timestamps
     end
+      add_index :clientes,:nro_documento, unique: true
    end
     def self.down
        drop_table :clientes
     end
-      add_index :clientes,:nro_documento, unique: true
+
 end

@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20180914003109) do
     t.string "sexo", limit: 1, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["nro_documento"], name: "index_clientes_on_nro_documento", unique: true
   end
 
   create_table "configuraciones", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -101,6 +102,7 @@ ActiveRecord::Schema.define(version: 20180914003109) do
   create_table "factura_ventas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.date "fecha", null: false
     t.integer "cliente_id", null: false
+    t.integer "empleado_id", null: false
     t.string "nro_factura", limit: 15, null: false
     t.string "tipo_factura", limit: 10, default: "Contado", null: false
     t.decimal "total_exentas", precision: 10, scale: 2, default: "0.0", null: false
@@ -173,7 +175,7 @@ ActiveRecord::Schema.define(version: 20180914003109) do
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.integer "empleado_id"
+    t.integer "empleado_id", null: false
     t.string "username", null: false
     t.string "crypted_password"
     t.string "salt"

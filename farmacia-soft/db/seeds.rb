@@ -28,7 +28,7 @@ end
 @user=User.first()
 if @user.blank?
 	user = User.new(
-      emplaeado_id: Empleado.first().id,
+      empleado_id: Empleado.first().id,
 	  	username: 'Diego' ,
 	    password: 'riper_010989'
         )
