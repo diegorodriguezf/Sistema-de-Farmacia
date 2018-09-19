@@ -17,7 +17,7 @@
      <div class="input-field col s6 offset-s2">
         <%= text_field_tag :tipoUso,params[:tipoUso], id: 'tipoUso', class: 'object-tag-input validate' %>
         <%= f.hidden_field :tipo_uso_ids,id: 'tipo_uso_ids' %>
-        <%= hidden_field_tag :tipo_uso_ids_aux,params[:tipo_uso_ids_aux], id: 'tipo_uso_ids_aux',value: @medicamento.tipo_uso_ids  %>
+        
         <%= f.label 'Tipo Uso' %>
      </div>
 </div>

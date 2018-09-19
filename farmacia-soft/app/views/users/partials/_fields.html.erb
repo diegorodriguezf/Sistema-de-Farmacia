@@ -1,25 +1,22 @@
+
 <div class="row">
-    <div class="input-field col s6">
-        <%= f.text_field :first_name, autofocus: true, autocomplete: "Nombre",maxlength:'25',class: 'validate'  %>
-        <%= f.label 'Nombre' %>
-    </div>
-    <div class="input-field col s6">
-        <%= f.text_field :last_name, autofocus: true, autocomplete: "Apellido", maxlength:'25',class: 'validate'  %>
-        <%= f.label 'Apellido' %>
-    </div>
-</div>
-<div class="row">
+  <div class="input-field col s6">
+    <%= f.hidden_field :id,id: 'user_id' %>
+    <%= text_field_tag :empleado,params[:empleado], id: 'empleado', class: 'object-tag-input validate' %>
+    <%= f.hidden_field :empleado_id,id: 'empleado_id' %>
+  </div>
     <div class="input-field col s6">
        <%= f.text_field :username, autofocus: true, autocomplete: "Usuario", maxlength:'15',validate: { uniqueness: true },class: 'validate'  %>
        <%= f.label 'Usuario' %>
     </div>
-    <div class="input-field col s6">
-        <%= f.password_field :password,autofocus: true, autocomplete: "Contraseña", maxlength:'15',class: 'validate' %>
-        <%= f.label 'Contraseña' %>
-    </div>
+
  </div>
  <div class="row">
-     <div class="input-field col s6">  
+   <div class="input-field col s6">
+       <%= f.password_field :password,autofocus: true, autocomplete: "Contraseña", maxlength:'15',class: 'validate' %>
+       <%= f.label 'Contraseña' %>
+   </div>
+     <div class="input-field col s6">
        <%=f.password_field :password_confirmation,autofocus: true, autocomplete: "Confirmar Contraseña", maxlength:'15',class: 'validate'%>
        <%= f.label 'Confirmar Contraseña' %>
      </div>

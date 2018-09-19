@@ -12,18 +12,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                   <% @users.each do |user| %> 
+                   <% @users.each do |user| %>
                       <tr>
                         <td style="display: none;"><%= user.id %></td>
-                        <td><%= user.first_name %></td>
-                        <td><%= user.last_name %></td>
+                        <td><%= user.empleado.nombre %></td>
+                        <td><%= user.empleado.apellido %></td>
                         <td><%= user.username %></td>
-                        <td><i class="mdi-content-create prefix" title="editar"></i><%= link_to "Editar", edit_user_path(user) %> &nbsp &nbsp &nbsp   
+                        <td><i class="mdi-content-create prefix" title="editar"></i><%= link_to "Editar", edit_user_path(user) %> &nbsp &nbsp &nbsp
                             <i class="mdi-action-delete prefix" title="borrar"></i><%= link_to "Eliminar", destroy_user_path(user), :method => :delete, data: { confirm:"Desea Eliminar el Usuario "+user.username}  %></td>
                       </tr>
-                   <% end %>   
-                </tbody> 
-            </table>    
-      </div>         
-  </div>  
- 
+                   <% end %>
+                </tbody>
+            </table>
+      </div>
+  </div>
