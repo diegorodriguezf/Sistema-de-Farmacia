@@ -41,6 +41,7 @@ class Empleados::EmpleadosController < ApplicationController
   end
   def findById
      @empleado = Empleado.find(params[:id])
+     @empleado.nombre=@empleado.nombre + ' ' + @empleado.apellido
      respond_to do |format|
        format.json { render json: @empleado }
      end
@@ -49,7 +50,9 @@ class Empleados::EmpleadosController < ApplicationController
     @empleados =Empleado.all
     respond_to do |format|
       format.html {render 'empleados/index'}
-      format.json { render json: @empleados }
+      format.json {
+                    render json: @empleados
+                  }
     end
   end
 

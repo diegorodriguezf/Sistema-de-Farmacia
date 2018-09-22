@@ -70,10 +70,8 @@ $( document ).on('turbolinks:load', function() {
            }
        });
        if ($('#user_id').val()!=''){
-         $.getJSON("../../empleado/find_by_id",{ id: $('#empleado_id').val()}, function(resuslt){
-           $.each(resuslt, function(i, element){
+         $.getJSON("../../empleado/find_by_id",{ id: $('#empleado_id').val()}, function(element){
                elt_emp.materialtags('add', {"id" : element.id , "nombre" : element.nombre });
-           });
          });
        }
        elt_emp.on('change', function (event) {
