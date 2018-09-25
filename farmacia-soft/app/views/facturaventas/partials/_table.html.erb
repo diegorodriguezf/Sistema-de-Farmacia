@@ -1,0 +1,46 @@
+  <div id="table-datatables">
+     <h4 class="header">Lista de Medicamentos</h4>
+       <div class="row">
+          <div class="col s12 m8 l12">
+            <table id="data-table-simple" class="responsive-table display" cellspacing="0">
+                <thead>
+                    <tr>
+                       <th>Medicamento </th>
+                       <th>Descripción</th>
+                       <th>Fec Venc</th>
+                       <th>Presentacion</th>
+                       <th>Grupo</th>
+                       <th>Cant Comp</th>
+                       <th>Cant Min</th>
+                       <th>Cant Max</th>
+                       <th>P. Compra</th>
+                       <th>P. Venta</th>
+                       <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   <% @medicamentos.each do |medicamento| %>
+                      <tr>
+                        <td><%= medicamento.nombre %></td>
+                        <td><%= medicamento.descripcion %></td>
+                        <td><%= medicamento.fecha_vencimiento.to_s %></td>
+                        <td><%= medicamento.presentacion_medicamento.descripcion %></td>
+                        <td> <% @grupos=TipoUso.find(medicamento.tipo_uso_ids)
+                                @grupos.each do |grupo| %>
+                                    <%= grupo.tipo_uso %>,
+                                <% end %>
+                        </td>
+                        <td><%= medicamento.cant_comprimido %></td>
+                        <td><%= medicamento.cant_st_min %></td>
+                        <td><%= medicamento.cant_st_max %></td>
+                        <td><%= medicamento.precio_compra %></td>
+                        <td><%= medicamento.precio_venta %></td>
+                        <td><i class="mdi-content-create prefix" title="editar"></i><%= link_to "Editar", edit_medicamento_path(medicamento) %> &nbsp &nbsp &nbsp
+                            <i class="mdi-action-delete prefix" title="borrar"></i><%= link_to "Eliminar", destroy_medicamento_path(medicamento), :method => :delete, data: { confirm:"Desea Eliminar el Medicamento "+medicamento.nombre}  %></td>
+                      </tr>
+                   <% end %>
+                </tbody>
+            </table>
+        </div>
+      </div>
+  </div>

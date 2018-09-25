@@ -3,6 +3,7 @@ class FacturaVentas::FacturaVentasController < ApplicationController
 
  def new
    @factura_venta=FacturaVenta.new
+   @factura_venta.fecha=Date.today.to_s
    render 'factura_venta/new'
  end
  def create
