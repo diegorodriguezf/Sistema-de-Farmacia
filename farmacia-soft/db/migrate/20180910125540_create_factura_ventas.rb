@@ -2,6 +2,7 @@ class CreateFacturaVentas < ActiveRecord::Migration[5.1]
   def change
     create_table :factura_ventas do |t|
       t.date :fecha,:null=>false
+      t.integer :timbrado_id,:null => false
       t.integer :cliente_id,:null => false
       t.integer :empleado_id,:null => false
       t.string :nro_factura, :null=>false,:limit=>15

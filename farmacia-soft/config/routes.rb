@@ -63,6 +63,14 @@ Rails.application.routes.draw do
           get 'medicamento/:id/show' => 'medicamentos/medicamentos#show', as: 'medicamento_show'
           delete '/medicamento/:id' => 'medicamentos/medicamentos#destroy', as: 'destroy_medicamento'
           get 'medicamentos/index' => 'medicamentos/medicamentos#index', as: 'medicamento_index'
+          # factura_venta
+          get '/factura_venta/new' => 'facturaventas/facturaventas#new', as: 'factura_venta_new'
+          post '/factura_venta' => 'facturaventas/facturaventas#create', as: 'factura_venta_create'
+          get 'factura_venta/:id/edit' => 'facturaventas/facturaventas#edit', as: 'edit_factura_venta'
+          put '/factura_venta/:id' => 'facturaventas/facturaventas#update', as: 'update_factura_venta'
+          get 'factura_venta/:id/show' => 'facturaventas/facturaventas#show', as: 'factura_venta_show'
+          delete '/factura_venta/:id' => 'facturaventas/facturaventas#destroy', as: 'destroy_factura_venta'
+          get 'facturaventas/index' => 'facturaventas/facturaventas#index', as: 'factura_venta_index'
           namespace :medicamentos do
             resources :medicamentos do
                  get 'autocomplete_tipoUso_tipo_uso', :on => :collection

@@ -1,6 +1,6 @@
 
-<div id ='edit_medicamento_form 'class="row">
-     <div class="col s6 offset-s3">
+<div id ='edit_factura_venta_form 'class="row">
+     <div class="col s8 offset-s2">
          <div class="card-panel">
               <% if flash[:notice]%>
                  <div id="card-alert" class="card green col s10 offset-s1">
@@ -9,11 +9,11 @@
                      </div>
                  </div>
               <% end %>
-            <h4 class="header2">Medicamento Form</h4>
+            <h4 class="header2">Factura Venta Form</h4>
             <div class="row">
-               <%= simple_form_for(@medicamento,url:update_medicamento_path,html:{autocomplete:'off',method: :put}) do |f| %>
+               <%= simple_form_for(@factura_venta,url:update_factura_venta_path,html:{autocomplete:'off',method: :put}) do |f| %>
                    <%= render 'layouts/error_messages', f: f%>
-                   <%= render 'medicamentos/partials/fields', f: f %>
+                   <%= render 'facturaventas/partials/header_fields', f: f %>
               <% end %>
             </div>
          </div>
