@@ -3,7 +3,7 @@ class Facturaventas::FacturaventasController < ApplicationController
 
  def new
    @factura_venta=FacturaVenta.new
-   @factura_venta.fecha=Date.today.to_s
+   @factura_venta.fecha=Date.today.strftime("%d/%m/%Y").to_s
    @factura_venta.nomb_empleado=@current_user.empleado.nombre + ' ' + @current_user.empleado.apellido
    @factura_venta.empleado_id=@current_user.empleado.id
    @timbrado=Configuracion.first().timbrado
@@ -12,6 +12,7 @@ class Facturaventas::FacturaventasController < ApplicationController
                   (FacturaVenta.where('timbrado_id',@timbrado.id).last().nro_factura.to_s.split('-')[2].to_i+1).to_s :
                   Configuracion.first().timbrado.nro_desde.to_s
    @factura_venta.nro_factura=@timbrado.serie.to_s + '-' + @nro_factura
+   @factura_venta.moneda_id=Configuracion.first().moneda_id
    render 'facturaventas/new'
  end
  def create
@@ -97,6 +98,7 @@ def destroy
 end
 
 def factura_venta_params
-      params.require(:factura_venta).permit(:fecha,:timbrado_id,:empleado_id,:cliente_id,:nro_factura,:tipo_factura,:total_exentas,:total_iva5,:total_iva10,:total,:confirmado)
+      params.require(:factura_venta).permit(:fecha,:timbrado_id,:empleado_id,:cliente_id,:moneda_id,:nro_factura,
+                                            :tipo_factura,:total_exentas,:total_iva5,:total_iva10,:total,:confirmado)
 end
 end

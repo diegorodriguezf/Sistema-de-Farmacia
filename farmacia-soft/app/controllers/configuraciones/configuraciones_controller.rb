@@ -28,7 +28,8 @@ class Configuraciones::ConfiguracionesController < ApplicationController
   end
 
   def configuracion_params
-        params.require(:configuracion).permit(:nombre_empresa, :nombre_fantasia,:logo_path,:ruc,:direccion,:telefono,:timbrado_id)
+        params.require(:configuracion).permit(:nombre_empresa, :nombre_fantasia,:logo_path,:ruc,
+                                              :direccion,:telefono,:timbrado_id,:moneda_id)
   end
 
   def actives_stamps

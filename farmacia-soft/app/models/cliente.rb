@@ -1,5 +1,5 @@
 class Cliente < ApplicationRecord
-    has_many :factura_ventas
+  has_many :factura_ventas
   # validaciones de clientes
   validates :nombre, presence: true
   validates :apellido, presence: true

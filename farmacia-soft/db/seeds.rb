@@ -49,6 +49,17 @@ if @timbrado.blank?
         )
       timbrado.save!
 end
+
+# moneda  seeder create
+@moneda=Moneda.first()
+if @moneda.blank?
+	monedas = [ {moneda: 'Guaranies',simbolo: 'GS',decimales: 0} ,{moneda: 'Peso Argentino',simbolo: '$',decimales:0},
+							{moneda: 'Dolar',simbolo: '$',decimales:2},{moneda: 'Euro',simbolo: '€',decimales:2},]
+	 monedas.each do |moneda|
+			 Moneda.new(moneda).save
+		 end
+end
+
 # configuracion  seeder create
 @configuracion=Configuracion.first()
 if @configuracion.blank?
@@ -60,6 +71,7 @@ if @configuracion.blank?
 	    direccion: 'Avda. Caballero c/Carlos Antonio López',
 	    telefono: '+595981526028',
       timbrado_id: Timbrado.first().id)
+			Moneda_id: Moneda.first().id)
       configuracion.save!
 end
 
@@ -85,7 +97,7 @@ end
 # tipo uso de medicamento create seeder
 @tipo_uso=TipoUso.first()
 if @tipo_uso.blank?
-	tipo_usos = [ {tipo_uso: 'Analgesico',} ,{tipo_uso: 'Antiinflamatorio',},{tipo_uso: 'Laxante',},{tipo_uso: 'Antialérgico', },
+	tipo_usos = [ {tipo_uso: 'Analgesico'} ,{tipo_uso: 'Antiinflamatorio'},{tipo_uso: 'Laxante'},{tipo_uso: 'Antialérgico' },
                   {tipo_uso: 'Antiácidos y antiulcerosos'},{tipo_uso: 'Antiinfecciosos'}, {tipo_uso: 'Antipiréticos'},
                   {tipo_uso: 'Antitusivos y mucolíticos'}, ]
 	 tipo_usos.each do |tip_uso|

@@ -24,34 +24,39 @@
     </div>
  </div>
  <div class="row">
-   <div class="input-field col s6">  
+   <div class="input-field col s6">
        <%=f.text_area :direccion,autofocus: true, class: 'materialize-textarea', maxlength:'200'%>
        <%= f.label 'Dirección' %>
-   </div>    
-     <div class="input-field col s6">  
+   </div>
+     <div class="input-field col s6">
        <%=f.text_field :telefono,autofocus: true, maxlength:'20'%>
        <%= f.label 'Telefono' %>
      </div>
-     
+
  </div>
   <div class="row">
-    <div class="input-select col s3">  
+    <div class="input-field col s3">
+        <%= f.collection_select :moneda_id, Moneda.all, :id, :moneda,class: 'validate' %>
+        <%= f.label 'Moneda' %>
+    </div>
+    <div class="input-select col s3 offset-s3">
       <%= f.label 'Timbrado' %>
       <select  name='configuracion[timbrado_id]' onChange='timbradoChange(this);' >
         <% @stamps.each do |stamp| %>
             <option value= <%= stamp.id%> > <%= stamp.timbrado%> </option>
-        <% end %> 
+        <% end %>
       </select>
-    </div>  
-      <div class="input-field col s5">
-          <%= link_to '<i class="mdi-action-visibility prefix "></i>'.html_safe,timbrado_show_path(@configuracion.timbrado), id: 'timbrado_show',title: 'Ver','data-activates': 'timbrado_data',class: 'cyan-text col s8 dropdown-button',remote: true %>
+    </div>
+      <div class="input-field col s3">
+          <%= link_to '<i class="mdi-action-visibility prefix "></i>'.html_safe,timbrado_show_path(@configuracion.timbrado), id: 'timbrado_show',title: 'Ver','data-activates': 'timbrado_data',class: 'cyan-text col s6 dropdown-button',remote: true %>
           <div class="row">
-             <ul id="timbrado_data" class="dropdown-content"> 
-            </ul> 
+             <ul id="timbrado_data" class="dropdown-content">
+            </ul>
           </div>
       </div>
     </div>
     <div class="row" id="timbrado_data"></div>
+
  </div>
   <div class="row">
       <div class="input-field col s12">

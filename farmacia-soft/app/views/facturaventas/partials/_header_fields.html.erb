@@ -1,7 +1,7 @@
 <div class="row">
   <%= f.hidden_field :id,id: 'factura_id'%>
   <div class="input-field col s2 offset-s1">
-      <%= f.date_field  :fecha,maxlength:'10',class: 'validate',disabled: true  %>
+      <%= f.text_field  :fecha,maxlength:'10',id: 'fec_factura',class: 'validate'  %>
       <%= f.label 'Fecha' %>
   </div>
   <div class="input-field col s4 offset-s1">
@@ -13,6 +13,24 @@
       <%=f.hidden_field :timbrado_id%>
       <%= f.text_field :nro_factura, class: 'validate',disabled: true  %>
       <%= f.label 'Nro Factura' %>
+  </div>
+</div>
+<div class="row">
+  <div class="input-field col s2 offset-s1">
+      <%= f.collection_select :moneda_id, Moneda.all, :id, :moneda,class: 'validate' %>
+      <%= f.label 'Moneda' %>
+  </div>
+  <div class="input-field col s4 offset-s1">
+    <%= text_field_tag :cliente,params[:cliente], id: 'cliente', class: 'object-tag-input validate' %>
+    <%= f.hidden_field :cliente_id,id: 'cliente_id' %>
+    <%= f.label 'Cliente' %>
+  </div>
+  <div class="col s2 offset-s1">
+     <%= f.label 'Tipo Factura'%>
+       <p> <%= f.radio_button :tipo_factura, 'Contado',id:'factura_contado',class: 'offset-s1'%>
+           <%= f.label 'Contado',for: 'factura_contado'%>  </p>
+       <p> <%= f.radio_button :tipo_factura, 'Credito', id: 'factura_credito'%>
+           <%= f.label 'Credito',for: 'factura_credito'%> </p>    
   </div>
 </div>
   <div class="row">

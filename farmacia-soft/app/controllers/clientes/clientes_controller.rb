@@ -40,6 +40,14 @@ class Clientes::ClientesController < ApplicationController
         end
   end
 
+  def findById
+     @cliente = Cliente.find(params[:id])
+     @cliente.nombre=@cliente.nombre + ' ' + @cliente.apellido
+     respond_to do |format|
+       format.json { render json: @cliente }
+     end
+  end
+
   def index
     @clientes =Cliente.all
     respond_to do |format|
@@ -48,7 +56,7 @@ class Clientes::ClientesController < ApplicationController
     end
   end
 
-  def destroy 
+  def destroy
     @cliente = Cliente.find(params[:id])
     begin
       @cliente.destroy

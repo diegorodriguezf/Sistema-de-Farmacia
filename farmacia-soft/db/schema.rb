@@ -103,6 +103,7 @@ ActiveRecord::Schema.define(version: 20180914003109) do
     t.date "fecha", null: false
     t.integer "cliente_id", null: false
     t.integer "empleado_id", null: false
+    t.integer "moneda_id"
     t.string "nro_factura", limit: 15, null: false
     t.string "tipo_factura", limit: 10, default: "Contado", null: false
     t.decimal "total_exentas", precision: 10, scale: 2, default: "0.0", null: false
@@ -128,6 +129,14 @@ ActiveRecord::Schema.define(version: 20180914003109) do
     t.string "modo_aplicacion", limit: 20, null: false
     t.string "especificacion", limit: 100
     t.boolean "activo", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "monedas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string "moneda", limit: 25, null: false
+    t.string "simbolo", limit: 5
+    t.integer "decimales", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

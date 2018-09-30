@@ -86,9 +86,47 @@ $( document ).on('turbolinks:load', function() {
           $('#empleado_id').val(($.isArray(val) ? JSON.stringify(val) : val.replace('"', '\\"') ))
        }).trigger('change');
      }
-   }
 
-  });
+     if ( (res[1]=="factura_venta" && res[res.length-1]=="new") || (res[1]=="factura_venta" && res[res.length-1]=="edit") ){
+       /* autocomplete empleado in user*/
+       var cliente = new Bloodhound({
+           datumTokenizer : Bloodhound.tokenizers.obj.whitespace("id","nombre"),
+           queryTokenizer : Bloodhound.tokenizers.whitespace,
+           remote: '../../clientes/index/'
+       });
+       cliente.initialize();
+       elt_cliente = $('#cliente');
+       elt_cliente.materialtags({
+           itemValue   : 'id',
+           itemText    : 'nombre',
+           typeaheadjs : {
+               name       : 'cliente',
+               displayKey : 'nombre',
+               source: cliente.ttAdapter()
+           }
+       });
+       if ($('#cliente_id').val()!=''){
+         $.getJSON("../../cliente/find_by_id",{ id: $('#cliente_id').val()}, function(element){
+               elt_cliente.materialtags('add', {"id" : element.id , "nombre" : element.nombre });
+         });
+       }
+       elt_cliente.on('change', function (event) {
+          var $element   = $(event.target);
+          if (!$element.data('materialtags')) {
+              return;
+          }
+          var val = $element.val();
+          if (val === null){
+              val = "null";
+          }
+          $('#cliente_id').val(($.isArray(val) ? JSON.stringify(val) : val.replace('"', '\\"') ))
+       }).trigger('change');
+     }
+   }
+   /* formateo de fechas */
+   $('#fec_factura').formatter({
+        'pattern': '{{99}}/{{99}}/{{9999}}',
+   });});
 
 
 /* angular js */

@@ -17,6 +17,7 @@
    inflect.irregular 'cliente', 'clientes'
    inflect.irregular 'empleado', 'empleados'
    inflect.irregular 'timbrado', 'timbrados'
+   inflect.irregular 'moneda', 'monedas'
    inflect.irregular 'configuracion', 'configuraciones'
    inflect.irregular 'tipo_uso', 'tipo_usos'
    inflect.irregular 'presentacion_medicamento', 'presentacion_medicamentos'
