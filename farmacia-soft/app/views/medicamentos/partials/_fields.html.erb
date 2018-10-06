@@ -17,7 +17,7 @@
      <div class="input-field col s6 offset-s2">
         <%= text_field_tag :tipoUso,params[:tipoUso], id: 'tipoUso', class: 'object-tag-input validate' %>
         <%= f.hidden_field :tipo_uso_ids,id: 'tipo_uso_ids' %>
-        
+
         <%= f.label 'Tipo Uso' %>
      </div>
 </div>
@@ -62,12 +62,18 @@
      </div>
  </div>
  <div class='row'>
-   <div class="col s4 m8 l4">
-     <%= f.label 'Activo:'%>
-      <%= f.radio_button :activo, true,id:'state_true'%>
-      <%= f.label 'Si',for: 'state_true'%>
-      <%= f.radio_button :activo, false, id: 'state_false'%>
-      <%= f.label 'No',for: 'state_false'%>
+   <div class="input-field col s2">
+     <%= f.collection_select(:iva_id, Iva.all, :id, :descripcion, {}, {class: "validate"} )%>
+     <%= f.label 'Iva' %>
+   </div>
+   <div class="col s4  offset-s4">
+      <%= f.label 'Activo:'%>
+      <p>
+        <%= f.radio_button :activo, true,id:'state_true'%>
+        <%= f.label 'Si',for: 'state_true'%>
+        <%= f.radio_button :activo, false, id: 'state_false'%>
+        <%= f.label 'No',for: 'state_false'%>
+      </p>
    </div>
  </div>
   <div class="row">

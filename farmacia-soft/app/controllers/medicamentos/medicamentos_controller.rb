@@ -4,6 +4,7 @@ class Medicamentos::MedicamentosController < ApplicationController
    autocomplete :tipoUso, :tipo_uso,:extra_data => [:id,:tipo_uso],:display_value => :tipo_uso
    def new
      @medicamento=Medicamento.new
+		 @medicamento.iva_id=Iva.where('descripcion=?','5%').first().id
      render 'medicamentos/new'
    end
    def create
@@ -74,6 +75,8 @@ class Medicamentos::MedicamentosController < ApplicationController
   end
 
   def medicamento_params
-        params.require(:medicamento).permit(:nombre, :descripcion,:fecha_vencimiento,{tipo_uso_ids:[]},:present_med_id,:cant_comprimido,:cant_st_min,:cant_st_max,:precio_compra,:precio_venta,:modo_aplicacion,:especificacion,:activo)
+        params.require(:medicamento).permit(:nombre, :descripcion,:fecha_vencimiento,{tipo_uso_ids:[]},:present_med_id,
+					                                  :cant_comprimido,:cant_st_min,:cant_st_max,:precio_compra,:precio_venta,
+																						:iva_id,:modo_aplicacion,:especificacion,:activo)
   end
 end

@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20180914003109) do
     t.string "direccion", limit: 100
     t.string "telefono", limit: 20
     t.integer "timbrado_id", null: false
+    t.integer "moneda_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -101,6 +102,7 @@ ActiveRecord::Schema.define(version: 20180914003109) do
 
   create_table "factura_ventas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.date "fecha", null: false
+    t.integer "timbrado_id", null: false
     t.integer "cliente_id", null: false
     t.integer "empleado_id", null: false
     t.integer "moneda_id"
@@ -111,6 +113,13 @@ ActiveRecord::Schema.define(version: 20180914003109) do
     t.decimal "total_iva10", precision: 10, scale: 2, default: "0.0", null: false
     t.decimal "total", precision: 10, scale: 2, default: "0.0", null: false
     t.boolean "confirmado", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ivas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string "descripcion", limit: 7, null: false
+    t.decimal "valor", precision: 3, scale: 2, default: "0.0", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -126,6 +135,7 @@ ActiveRecord::Schema.define(version: 20180914003109) do
     t.integer "cant_st_max", null: false
     t.integer "precio_compra", null: false
     t.integer "precio_venta", null: false
+    t.integer "cod_iva"
     t.string "modo_aplicacion", limit: 20, null: false
     t.string "especificacion", limit: 100
     t.boolean "activo", default: false

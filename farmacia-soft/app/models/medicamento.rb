@@ -1,6 +1,8 @@
 class Medicamento < ApplicationRecord
  belongs_to :presentacion_medicamento, :foreign_key=>"present_med_id"
+ belongs_to :iva, :foreign_key=>"iva_id"
  has_many :detalle_factura_ventas
+ has_many :detalle_factura_ventas_tmp
  has_many :stocks
  has_many :detalle_movimiento_stocks
  serialize :tipo_uso_ids,Array

@@ -13,6 +13,9 @@ class Facturaventas::FacturaventasController < ApplicationController
                   Configuracion.first().timbrado.nro_desde.to_s
    @factura_venta.nro_factura=@timbrado.serie.to_s + '-' + @nro_factura
    @factura_venta.moneda_id=Configuracion.first().moneda_id
+   DetalleFacturaVentaTmp.destroy_all
+   @det_fac_venta_tmp =DetalleFacturaVentaTmp.new
+   @det_fac_ventas_tmp=DetalleFacturaVentaTmp.all
    render 'facturaventas/new'
  end
  def create

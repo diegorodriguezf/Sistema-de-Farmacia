@@ -70,8 +70,8 @@ if @configuracion.blank?
 	    ruc: '80002502-2',
 	    direccion: 'Avda. Caballero c/Carlos Antonio López',
 	    telefono: '+595981526028',
-      timbrado_id: Timbrado.first().id)
-			Moneda_id: Moneda.first().id)
+      timbrado_id: Timbrado.first().id,
+			moneda_id: Moneda.first().id)
       configuracion.save!
 end
 
@@ -104,6 +104,16 @@ if @tipo_uso.blank?
        TipoUso.new(tip_uso).save
      end
 end
+
+# iva  seeder create
+@iva=Iva.first()
+if @iva.blank?
+	ivas = [ {descripcion: '10%',valor: 0.10} ,{descripcion: '5%',valor: 0.05},{descripcion: 'Exenta',valor: 0.0},]
+	 ivas.each do |iva|1
+			 Iva.new(iva).save
+		 end
+end
+
 # medicamento  seeder create
 @medicamento=Medicamento.first()
 if @medicamento.blank?
@@ -118,6 +128,7 @@ if @medicamento.blank?
 			cant_st_max: 40,
 			precio_compra: 3700,
 			precio_venta: 4500,
+			iva_id: Iva.where('descripcion=?','5%').first().id
 			modo_aplicacion: 'Via Oral',
 			especificacion: 'Dolores de Cabeza',
 			activo: 1)

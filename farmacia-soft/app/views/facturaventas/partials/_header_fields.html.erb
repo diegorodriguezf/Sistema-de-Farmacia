@@ -30,12 +30,7 @@
        <p> <%= f.radio_button :tipo_factura, 'Contado',id:'factura_contado',class: 'offset-s1'%>
            <%= f.label 'Contado',for: 'factura_contado'%>  </p>
        <p> <%= f.radio_button :tipo_factura, 'Credito', id: 'factura_credito'%>
-           <%= f.label 'Credito',for: 'factura_credito'%> </p>    
+           <%= f.label 'Credito',for: 'factura_credito'%> </p>
   </div>
 </div>
-  <div class="row">
-      <div class="input-field col s12">
-         <%= f.submit "Guardar " ,class: 'btn cyan waves-effect waves-light right'  %>
-         <%= f.button :button, 'Cancelar', type: :reset, class: 'btn grey right' %>
-       </div>
-  </div>
+  

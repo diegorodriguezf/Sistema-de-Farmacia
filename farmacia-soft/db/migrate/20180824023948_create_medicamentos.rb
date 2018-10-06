@@ -11,6 +11,7 @@ class CreateMedicamentos < ActiveRecord::Migration[5.1]
       t.integer :cant_st_max,:null=>false
       t.integer :precio_compra,:null=>false
       t.integer :precio_venta,:null=>false
+      t.integer :iva_id,:null=>false
       t.string :modo_aplicacion, limit:20, :null => false
       t.string :especificacion, limit:100, :null => true
       t.boolean :activo, :default=> false

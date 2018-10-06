@@ -1,0 +1,33 @@
+<div id="table-datatables">
+     <div class="row">
+        <div class="col s12 m8 l12">
+          <table  class="responsive-table display" cellspacing="0">
+              <thead>
+                  <tr>
+                     <th>Medicamento </th>
+                     <th>Cantidad </th>
+                     <th>Exenta </th>
+                     <th>IVA 10 </th>
+                     <th>IVA 5</th>
+                     <th>Sub total</th>
+                     <th>Acciones</th>
+                  </tr>
+              </thead>
+              <tbody>
+                 <% @det_fac_ventas_tmp.each do |detalle_factura_venta_tmp| %>
+                    <tr>
+                      <td><%= detalle_factura_venta_tmp.medicamento.nombre %></td>
+                      <td><%= detalle_factura_venta_tmp.cantidad.to_s %></td>
+                      <td><%= detalle_factura_venta_tmp.exenta.to_s %></td>
+                      <td><%= detalle_factura_venta_tmp.iva10.to_s %></td>
+                      <td><%= detalle_factura_venta_tmp.iva5.to_s %></td>
+                      <td><%= detalle_factura_venta_tmp.cantidad*detalle_factura_venta_tmp.medicamento.precio_venta %></td>
+                      <td><i class="mdi-content-create prefix" title="editar"></i><%= link_to "Editar", edit_detalle_factura_venta_tmp_path(detalle_factura_venta_tmp),:remote => true %> &nbsp &nbsp &nbsp
+                          <i class="mdi-action-delete prefix" title="borrar"></i><%= link_to "Eliminar", destroy_detalle_factura_venta_tmp_path(detalle_factura_venta_tmp), :method => :delete,:remote => true  %></td>
+                    </tr>
+                 <% end %>
+              </tbody>
+          </table>
+      </div>
+    </div>
+</div>

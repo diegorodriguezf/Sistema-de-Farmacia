@@ -13,7 +13,23 @@
                <%= simple_form_for(@factura_venta,url:factura_venta_create_path,html:{autocomplete:'off'},validate: true) do |f| %>
                  <%= render 'layouts/error_messages', f: f %>
                   <h4 class="header2">Factura Venta Form</h4>
-                 <%= render 'facturaventas/partials/header_fields', f: f %>
+                  <%= render 'facturaventas/partials/header_fields', f: f %>
+                  <h4 class="header2">Detalle Factura Venta</h4>
+                  <div id="">
+                      <%= simple_form_for(@det_fac_venta_tmp,url:detalle_factura_venta_tmp_create_or_update_path,html:{autocomplete:'off',method: :post,remote: true}) do |f| %>
+                         <%= render 'facturaventas/partials/details_fields',f: f %>
+                      <% end %>
+                  </div>
+
+                  <div id="lista_medicamentos">
+                      <%= render 'facturaventas/partials/details_lists'%>
+                  </div>
+                  <div class="row">
+                      <div class="input-field col s12">
+                         <%= f.submit "Guardar " ,class: 'btn cyan waves-effect waves-light right'  %>
+                         <%= f.button :button, 'Cancelar', type: :reset, class: 'btn grey right' %>
+                      </div>
+                  </div>
                <% end %>
             </div>
          </div>

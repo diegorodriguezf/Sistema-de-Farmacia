@@ -21,6 +21,7 @@
    inflect.irregular 'configuracion', 'configuraciones'
    inflect.irregular 'tipo_uso', 'tipo_usos'
    inflect.irregular 'presentacion_medicamento', 'presentacion_medicamentos'
+   inflect.irregular 'iva', 'ivas'
    inflect.irregular 'medicamento', 'medicamentos'
    inflect.irregular 'tipo_uso_medicamento', 'tipo_usos_medicamentos'
    inflect.irregular 'factura_venta','factura_ventas'
