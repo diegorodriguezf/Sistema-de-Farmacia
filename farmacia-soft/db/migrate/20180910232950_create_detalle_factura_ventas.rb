@@ -7,6 +7,7 @@ class CreateDetalleFacturaVentas < ActiveRecord::Migration[5.1]
       t.decimal :exenta,precision: 7, scale: 2,:null => false,default: 0
       t.decimal :iva5,precision: 7, scale: 2,:null => false,default: 0
       t.decimal :iva10,precision: 7, scale: 2,:null => false,default: 0
+      t.decimal :subtotal,precision: 7, scale: 2,:null => false,default: 0
       t.timestamps
     end
   end

@@ -13,9 +13,12 @@
             <div class="row">
                <%= simple_form_for(@timbrado,url:update_timbrado_path,html:{autocomplete:'off',method: :put},validate: true) do |f| %>
                    <%= render 'layouts/error_messages', f: f%>
-                   <%= render 'timbrados/partials/fields', f: f %>
+                   <fieldset>
+                     <legend>Timbrados Form</legend>
+                     <%= render 'timbrados/partials/fields', f: f %>
+                  </fieldset>
               <% end %>
-            </div> 
-         </div>    
+            </div>
+         </div>
      </div>
-</div> 
+</div>

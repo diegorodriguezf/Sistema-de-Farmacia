@@ -124,10 +124,53 @@ $( document ).on('turbolinks:load', function() {
      }
    }
    /* formateo de fechas */
+
    $('#fec_factura').formatter({
         'pattern': '{{99}}/{{99}}/{{9999}}',
-   });});
+   });
 
+  /* detalle factura venta for ajax */
+  $('#create_or_update').on("click", function() {
+
+    $("#detalle_factura_venta_form").validate({
+      rules: {
+        "medicamento_id": {
+          required: true
+        },
+        "cantidad": {
+          required: true
+        }
+      },
+      messages: {
+        "medicamento_id": {
+          required: "El campo no puede estar vacio"
+          },
+        "cantidad": {
+          required: "El campo no puede estar vacio"
+
+        },
+      },
+      errorPlacement: function(error, element) {
+        document.getElementById(element.attr("id")).setCustomValidity("wrong");
+        $($("label[for=" +element.attr("id") +"]")[0]).attr("data-error",error.text());
+      },
+      success: function(label, element){
+        var _id= $("#detalle_factura_venta_id").val();
+        var _medicamento_id =$("#medicamento_id").val();
+        var _cantidad = $("#cantidad").val();;
+        $.ajax({
+            url: $(this).attr('ajax_path'),
+            data: {"id":_id ,"medicamento_id":_medicamento_id,"cantidad":_cantidad},
+            type:'POST',
+            async: true,
+            dataType: 'script'
+         });
+            return false;
+      }
+    });
+
+   });
+});
 
 /* angular js */
 

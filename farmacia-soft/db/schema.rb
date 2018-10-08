@@ -102,7 +102,7 @@ ActiveRecord::Schema.define(version: 20180914003109) do
 
   create_table "factura_ventas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.date "fecha", null: false
-    t.integer "timbrado_id", null: false
+    t.integer "timbrado_id"
     t.integer "cliente_id", null: false
     t.integer "empleado_id", null: false
     t.integer "moneda_id"
@@ -135,7 +135,7 @@ ActiveRecord::Schema.define(version: 20180914003109) do
     t.integer "cant_st_max", null: false
     t.integer "precio_compra", null: false
     t.integer "precio_venta", null: false
-    t.integer "cod_iva"
+    t.integer "iva_id"
     t.string "modo_aplicacion", limit: 20, null: false
     t.string "especificacion", limit: 100
     t.boolean "activo", default: false

@@ -8,15 +8,15 @@
                      </div>
                  </div>
               <% end %>
-           
             <div class="row">
                <%= simple_form_for(@medicamento,url:medicamento_create_path,html:{autocomplete:'off'},validate: true) do |f| %>
                  <%= render 'layouts/error_messages', f: f %>
-                  <h4 class="header2">Medicamento Form</h4>
-                 <%= render 'medicamentos/partials/fields', f: f %>
+                 <fieldset>
+                   <legend>Medicamento Form</legend>
+                   <%= render 'medicamentos/partials/fields', f: f %>
+                 </fieldset>
                <% end %>
-            </div> 
-         </div>    
+            </div>
+         </div>
      </div>
-</div>     
-
+</div>

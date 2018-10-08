@@ -8,13 +8,14 @@
                      </div>
                  </div>
               <% end %>
-            <h4 class="header2">Usuario Form</h4>
             <div class="row">
                <%= simple_form_for(@user,url:sign_up_user_path,html:{autocomplete:'off'},:validate => true) do |f| %>
-                     <%= render 'users/partials/fields', f: f %>
+                  <fieldset>
+                    <legend>Usuario Form</legend>
+                   <%= render 'users/partials/fields', f: f %>
+                 </fieldset>
               <% end %>
-            </div> 
-         </div>    
+            </div>
+         </div>
      </div>
-</div>     
-
+</div>

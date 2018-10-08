@@ -13,10 +13,14 @@
                 <%= flash[:error] %>.
             </div>
          </div>
-         <% end %>      
-  </div> 
-</div> 
+         <% end %>
+  </div>
+</div>
 <div class='row'>
-    <%= render 'clientes/partials/table'%>
-</div> 
-
+  <div class="col s12 m8 l12">
+    <fieldset>
+       <legend>Lista de Clientes</legend>
+       <%= render 'clientes/partials/table'%>
+    </fieldset>
+  </div>
+</div>

@@ -1,23 +1,30 @@
-<div class="row">
-  <div class="col s12">
-        <div class="input-field col s3 offset-s1">
-          <%= f.hidden_field :id,id: 'detalle_factura_venta_id'%>
-          <%= f.text_field :medicamento,id: 'medicamento',maxlength:'35',class: 'validate'  %>
-          <%= f.label 'Medicamento' %>
+
+   <fieldset>
+      <legend>Detalle Factura Venta</legend>
+        <div class="row">
+          <div class="col s12">
+             <form id="detalle_factura_venta_form">
+                <div class="input-field col s3 offset-s1">
+                  <%= hidden_field_tag :id,params[:id],id: 'detalle_factura_venta_id'%>
+                  <%= autocomplete_field_tag :medicamento,params[:medicamento],autocomplete_medicamento_nombre_detallefacturaventastmp_detallefacturaventastmp_index_path,:id_element=>"#medicamento_id",:id=>"medicamento",:maxlength=>"35"%>
+                  <%= hidden_field_tag :medicamento_id,params[:medicamento_id],:id=>"medicamento_id"%>
+                  <%= label_tag 'Medicamento' %>
+                </div>
+                <div class="input-field col s1 offset-s1">
+                  <%= text_field_tag :cantidad,params[:cantidad], id: 'cantidad',class: 'validate', maxlength:'3'%>
+                  <%= label_tag 'Cantidad' %>
+                </div>
+                <div class="input-field col s1 offset-s1">
+                    <%= text_field_tag(:iva,params[:iva], id: 'iva',class:'validate',disabled: true) %>
+                    <%= label_tag 'Iva' %>
+                </div>
+                <div class="input-field col s2">
+                  <%= link_to "Agregar", "#", :id => "create_or_update",  :class => 'btn cyan waves-effect waves-light col s10',:ajax_path => detalle_factura_venta_tmp_create_or_update_path%>
+                </div>
+                <div class="input-field col s2">
+                    <button type="button" class="btn grey waves-effect waves-light col s10" onclick="cancelar()">Cancelar</button>
+                </div>
+            </form>
+          </div>
         </div>
-        <div class="input-field col s1 offset-s1">
-          <%= f.text_field :cantidad, id: 'cantidad',class: 'validate', maxlength:'3'%>
-          <%= f.label 'Cantidad' %>
-        </div>
-        <div class="input-field col s1 offset-s1">
-            <%= text_field_tag(:iva,params[:iva], id: 'iva',class:'validate',disabled: true) %>
-            <%= f.label 'Iva' %>
-        </div>
-        <div class="input-field col s2">
-          <%= f.submit "Agregar" ,class: 'btn cyan waves-effect waves-light col s10'  %>
-        </div>
-        <div class="input-field col s2">
-          <%= f.button :button, 'Cancelar', type: :reset, class: 'btn grey waves-effect waves-light col s10' %>
-        </div>
-  </div>
-</div>
+  </fieldset>

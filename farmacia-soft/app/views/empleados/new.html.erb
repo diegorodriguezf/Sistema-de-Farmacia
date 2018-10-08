@@ -8,12 +8,13 @@
                      </div>
                  </div>
               <% end %>
-
             <div class="row">
                <%= simple_form_for(@empleado,url:empleado_create_path,html:{autocomplete:'off'},validate: true) do |f| %>
                  <%= render 'layouts/error_messages', f: f %>
-                  <h4 class="header2">Empleado Form</h4>
-                 <%= render 'empleados/partials/fields', f: f %>
+                 <fieldset>
+                   <legend>Empleado Form</legend>
+                   <%= render 'empleados/partials/fields', f: f %>
+                 </fieldset>
                <% end %>
             </div>
          </div>

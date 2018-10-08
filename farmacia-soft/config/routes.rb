@@ -80,12 +80,15 @@ Rails.application.routes.draw do
           end
 
           # detalle_factura_venta_tmp
-          post '/detalle_factura_venta_aux' => 'detallefacturaventastmp/detallefacturaventastmp#create', as: 'detalle_factura_venta_tmp_create'
-          get 'detalle_factura_venta_aux/:id/edit' => 'detallefacturaventastmp/detallefacturaventastmp#edit', as: 'edit_detalle_factura_venta_tmp'
-          put '/detalle_factura_venta_aux/:id' => 'detallefacturaventastmp/detallefacturaventastmp#update', as: 'update_detalle_factura_venta_tmp'
-          delete '/detalle_factura_venta_aux/:id' => 'detallefacturaventastmp/detallefacturaventastmp#destroy', as: 'destroy_detalle_factura_venta_tmp'
-          get 'detalle_factura_venta_aux/index' => 'detallefacturaventastmp/detallefacturaventastmp#index', as: 'detalle_factura_venta_tmp_index'
-          post '/detalle_factura_venta_aux/create_or_update' => 'detallefacturaventastmp/detallefacturaventastmp#create_or_update', as: 'detalle_factura_venta_tmp_create_or_update'
+          get 'detalle_factura_venta_tmp/:id/edit' => 'detallefacturaventastmp/detallefacturaventastmp#edit', as: 'edit_detalle_factura_venta_tmp'
+          delete '/detalle_factura_venta_tmp/:id' => 'detallefacturaventastmp/detallefacturaventastmp#destroy', as: 'destroy_detalle_factura_venta_tmp'
+          get 'detalle_factura_venta_tmp/index' => 'detallefacturaventastmp/detallefacturaventastmp#index', as: 'detalle_factura_venta_tmp_index'
+          post '/detalle_factura_venta_tmp/create_or_update' => 'detallefacturaventastmp/detallefacturaventastmp#create_or_update', as: 'detalle_factura_venta_tmp_create_or_update'
+          namespace :detallefacturaventastmp do
+            resources :detallefacturaventastmp do
+                 get 'autocomplete_medicamento_nombre', :on => :collection
+            end
+          end
           # Configuracion
           get 'configuracion/:id/edit' => 'configuraciones/configuraciones#edit', as: 'edit_configuracion'
           put '/configuracion/:id' => 'configuraciones/configuraciones#update', as: 'update_configuracion'

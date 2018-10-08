@@ -128,7 +128,7 @@ if @medicamento.blank?
 			cant_st_max: 40,
 			precio_compra: 3700,
 			precio_venta: 4500,
-			iva_id: Iva.where('descripcion=?','5%').first().id
+			iva_id: Iva.where('descripcion=?','5%').first().id,
 			modo_aplicacion: 'Via Oral',
 			especificacion: 'Dolores de Cabeza',
 			activo: 1)

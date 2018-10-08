@@ -9,11 +9,13 @@
                      </div>
                  </div>
               <% end %>
-            <h4 class="header2">Empleado Form</h4>
             <div class="row">
                <%= simple_form_for(@cliente,url:update_empleado_path,html:{autocomplete:'off',method: :put}) do |f| %>
                    <%= render 'layouts/error_messages', f: f%>
-                   <%= render 'empleados/partials/fields', f: f %>
+                   <fieldset>
+                     <legend>Empleado Form</legend>
+                     <%= render 'empleados/partials/fields', f: f %>
+                  </fieldset>
               <% end %>
             </div>
          </div>

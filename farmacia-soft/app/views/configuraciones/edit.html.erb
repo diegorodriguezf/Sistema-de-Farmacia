@@ -9,13 +9,15 @@
                      </div>
                  </div>
               <% end %>
-            <h4 class="header2">Configuracion Form</h4>
             <div class="row">
                <%= simple_form_for(@configuracion,url:update_configuracion_path,html:{autocomplete:'off',method: :put},validate:true) do |f| %>
                    <%= render 'layouts/error_messages', f: f%>
-                   <%= render 'configuraciones/partials/fields', f: f %>
+                   <fieldset>
+                     <legend>Configuracion Form</legend>
+                     <%= render 'configuraciones/partials/fields', f: f %>
+                  </fieldset>
               <% end %>
-            </div> 
-         </div>    
-     </div>  
-</div> 
+            </div>
+         </div>
+     </div>
+</div>
